@@ -55,7 +55,7 @@ export default function AboutMe() {
           </div>
         </div>
         <div className='flex flex-col w-full lg:w-[50%] xl:w-[60%] h-auto gap-5'>
-          <span className='text-base font-medium'>I am an experienced Frontend Developer with over a decade of professional expertise in the field. Throughout my career, I have had the privilege of collaborating with prestigious organizations, contributing to their success and growth.</span>
+          <span className='text-base font-medium text-white'>I am an experienced Frontend Developer with over a decade of professional expertise in the field. Throughout my career, I have had the privilege of collaborating with prestigious organizations, contributing to their success and growth.</span>
 
           <div className='w-full flex mt-4 gap-2 relative flex-wrap'>
             {
@@ -75,15 +75,15 @@ export default function AboutMe() {
                       hover:bg-[#11072f]
                     "
                   >
-                    <div className="mb-4 text-white/90">
-                    <FontAwesomeIcon icon={item.icon} size="2x" />
+                    <div className="mb-4 text-gray-300">
+                      <FontAwesomeIcon icon={item.icon} size="2x" />
                     </div>
 
                     <h3 className="text-white font-semibold mb-2">
                       {item.name}
                     </h3>
 
-                    <p className="text-white/70 text-sm leading-relaxed">
+                    <p className="text-gray-300 text-sm leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -93,7 +93,7 @@ export default function AboutMe() {
           </div>
 
           <div className='flex flex-col justify-center items-start w-full mt-4'>
-            <h3 className='text-lg font-semibold mb-2'>Languages & Frameworks</h3>
+            <h3 className='text-lg font-semibold mb-2 text-white'>Languages & Frameworks</h3>
             <div className='w-full flex mt-4 gap-2 relative flex-wrap'>
               {
                 LANGUAGES.map((language, index) => {
@@ -107,7 +107,7 @@ export default function AboutMe() {
                         border border-white/50
                         rounded-full
                         text-sm
-                        text-white/80
+                        text-gray-200
                         font-medium
                       "
                     >

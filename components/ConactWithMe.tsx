@@ -11,7 +11,7 @@ export default function ConactWithMe() {
       headerText="Get in touch"
     >
       <div className='w-full md:w-[70%] lg:w-[50%] h-full flex flex-col items-center justify-center gap-12'>
-        <span className='text-center'>I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.</span>
+        <span className='text-center text-white'>I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.</span>
         <div className='w-full'>
           <form className='flex flex-col gap-8'>
             <div className='w-full flex gap-4'>

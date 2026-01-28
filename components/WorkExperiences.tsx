@@ -10,7 +10,7 @@ export default function WorkExperiences() {
       miniHeaderText="My portfolio"
       headerText="My work experiences"
     >
-      <span className='text-center'>Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end development.</span>
+      <span className='text-center text-white'>Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end development.</span>
       <div className="w-full lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {[1, 2, 3, 4].map(i => (
           <div
