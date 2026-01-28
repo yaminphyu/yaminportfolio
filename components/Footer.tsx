@@ -21,7 +21,7 @@ export default function Footer() {
       <div>
         <ul className='flex gap-7'>
           {
-            SOCIAL_MEDIA.map((social, index) => {
+            SOCIAL_MEDIA.map((social: any, index: number) => {
               return (
                 <li key={index} className="inline-block mr-6">
                   <Link
