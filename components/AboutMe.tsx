@@ -9,7 +9,7 @@ export default function AboutMe() {
     <SectionWrapper
       miniHeaderText="Introduction"
       headerText="About me"
-      sectionId="aboutme"
+      sectionId="about-me"
     >
       <div className='flex flex-col lg:flex-row justify-center lg:justify-between xl:justify-center items-center lg:items-start w-full h-full gap-16 lg:gap-0'>
         <div className="relative inline-block w-[38%] lg:w-[38%] xl:w-[38%]">

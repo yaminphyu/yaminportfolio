@@ -3,7 +3,7 @@ import { useSidebarToggle } from '@/context/SidebarToggleContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { NAV_LIST } from '@/config';
-import Link from 'next/link';
+import { handleScroll } from '@/util';
 
 export default function MobileSidebar() {
   const { isOpen, closeSidebar } = useSidebarToggle();
@@ -25,13 +25,15 @@ export default function MobileSidebar() {
         <ul className="flex flex-col gap-4 mt-6">
           {NAV_LIST.map((nav, index) => (
             <li key={index}>
-              <Link
-                href={nav.href}
+              <button
+                onClick={() => {
+                  handleScroll(nav?.id);
+                  closeSidebar();
+                }}
                 className="text-white hover:text-white/80 transition"
-                onClick={closeSidebar}
               >
                 {nav.name}
-              </Link>
+              </button>
             </li>
           ))}
         </ul>

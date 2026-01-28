@@ -2,9 +2,10 @@ import React from 'react'
 
 interface SectionWrapperProps {
   children: React.ReactNode;
-  miniHeaderText: string;
-  headerText: string;
+  miniHeaderText?: string;
+  headerText?: string;
   sectionId: string;
+  isHomepage?: boolean;
 }
 
 export default function SectionWrapper({
@@ -12,10 +13,14 @@ export default function SectionWrapper({
   miniHeaderText,
   headerText,
   sectionId,
+  isHomepage = false,
 }: SectionWrapperProps) {
   return (
     <section
-      className="relative max-w-[86%] md:max-w-[78%] w-full min-h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-5 md:p-5"
+      className={`
+        ${isHomepage ? 'max-w-[88%] md:max-w-[40%] gap-3 md:gap-5 px-5' : 'max-w-[86%] md:max-w-[78%] gap-5'}
+        relative w-full min-h-[calc(100vh-80px)] flex flex-col items-center justify-center md:p-5
+      `}
       id={sectionId}
     >
       <h3 className='text-base md:text-xl text-white'>{miniHeaderText}</h3>

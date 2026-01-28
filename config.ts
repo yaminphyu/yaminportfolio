@@ -6,28 +6,34 @@ export const THEME = process.env.NEXT_PUBLIC_THEME;
 export const LINKEDIN_PROFILE = process.env.NEXT_PUBLIC_LINKEDIN_PROFILE;
 export const GITHUB_PROFILE = process.env.NEXT_PUBLIC_GITHUB_PROFILE;
 
-export const NAV_LIST = [
+type NavItem = {
+  name: string;
+  href: string;
+  id: string;
+};
+
+export const NAV_LIST: NavItem[]  = [
   {
     name: 'Home',
     href: '/',
+    id: 'hero-section',
   },
   {
     name: 'About me',
     href: '/about-me',
-  },
-  {
-    name: 'Services',
-    href: '/services',
+    id: 'about-me',
   },
   {
     name: 'My Work',
     href: '/my-work',
+    id: 'my-work',
   },
   {
     name: 'Contact me',
     href: '/contact-me',
+    id: 'contact-me',
   },
-];
+] as const;
 
 export const ABOUT_ME = [
   {
@@ -40,7 +46,7 @@ export const ABOUT_ME = [
     description: 'More than 50+ projects completed successfully.',
     icon: faBriefcase,
   },
-];
+] as const;
 
 export const LANGUAGES = [
   'HTML',
@@ -65,4 +71,4 @@ export const SOCIAL_MEDIA = [
     name: 'LinkedIn',
     url: LINKEDIN_PROFILE
   },
-]
+] as const;

@@ -2,10 +2,14 @@ import React from 'react'
 import { faArrowRight, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
+import SectionWrapper from './SectionWrapper'
 
 export default function HeroSection() {
   return (
-    <section className="relative max-w-[88%] md:max-w-[40%] w-full min-h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-3 md:gap-5 px-5  md:p-5">
+    <SectionWrapper
+      sectionId="hero-section"
+      isHomepage={true}
+    >
       <Image
         src="/jennie.jpg"
         alt="Profile Picture"
@@ -33,6 +37,6 @@ export default function HeroSection() {
           <FontAwesomeIcon icon={faDownload} className="ml-1" />
         </button>
       </div>
-    </section>
+    </SectionWrapper>
   )
 }

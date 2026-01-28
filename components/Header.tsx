@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Button from './Button';
 import { useSidebarToggle } from '@/context/SidebarToggleContext';
+import { handleScroll } from '@/util';
 
 interface LogoProps {
   isFooter?: boolean;
@@ -24,18 +25,22 @@ export const Logo = ({
   );
 };
 
-const NavBarItem = () => {
+const NavBarItem = ({
+  handleScroll
+}: {
+  handleScroll: (id: string) => void;
+}) => {
   return (
     <nav className="hidden md:flex">
       <ul className="flex items-center gap-10 px-10 py-3 rounded-full border border-white/20 backdrop-blur-md">
         {NAV_LIST.map((nav, index) => (
           <li key={index}>
-            <Link
-              href={nav.href}
+            <button
+              onClick={() => handleScroll(nav?.id)}
               className="text-white hover:text-white/80 transition"
             >
               {nav.name}
-            </Link>
+            </button>
           </li>
         ))}
       </ul>
@@ -106,7 +111,7 @@ export default function Header() {
     >
       <div className="max-w-[86%] w-full h-full flex items-center justify-between">
         <Logo />
-        <NavBarItem />
+        <NavBarItem handleScroll={handleScroll} />
         <HireMe toggleSidebar={toggleSidebar} />
       </div>
     </header>
