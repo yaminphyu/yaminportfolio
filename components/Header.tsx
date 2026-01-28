@@ -3,6 +3,9 @@ import { NAV_LIST, THEME } from '@/config';
 import { faMoon } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Button from './Button';
+import { useSidebarToggle } from '@/context/SidebarToggleContext';
 
 interface LogoProps {
   isFooter?: boolean;
@@ -40,24 +43,43 @@ const NavBarItem = () => {
   );
 };
 
-const HireMe = () => {
+const HireMe = ({
+  toggleSidebar,
+}: {
+  toggleSidebar: () => void;
+}) => {
   return (
     <div className="flex items-center gap-4">
-      <button
-        className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white cursor-pointer"
-        aria-label="Toggle theme"
-      >
+      <Button cusCss='w-10 h-10 !p-0 flex items-center justify-center'>
         <FontAwesomeIcon icon={faMoon} />
-      </button>
-
-      <button className="px-5 py-2 rounded-full border border-white/30 text-white hover:bg-white/10 transition cursor-pointer">
+      </Button>
+      <Button cusCss='hidden md:flex'>
         Hire me
-      </button>
+      </Button>
+      <MobileSidebarToggle toggleSidebar={toggleSidebar} />
     </div>
   );
 };
 
+const MobileSidebarToggle = ({
+  toggleSidebar,
+}: {
+  toggleSidebar: () => void;
+}) => {
+  return (
+    <div className="md:hidden">
+      <FontAwesomeIcon
+        icon={faBars}
+        className="text-white text-lg cursor-pointer"
+        onClick={toggleSidebar}
+      />
+    </div>
+  );
+}
+
 export default function Header() {
+  const { toggleSidebar } = useSidebarToggle();
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -85,7 +107,7 @@ export default function Header() {
       <div className="max-w-[86%] w-full h-full flex items-center justify-between">
         <Logo />
         <NavBarItem />
-        <HireMe />
+        <HireMe toggleSidebar={toggleSidebar} />
       </div>
     </header>
   )

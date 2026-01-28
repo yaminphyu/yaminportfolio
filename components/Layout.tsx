@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import MobileSidebar from './MobileSidebar';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -9,6 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="w-full min-h-[100vmh] flex flex-col bg-[#130819] pb-10">
       <Header />
+      <MobileSidebar />
 
       <main className="w-full flex flex-col justify-center items-center pt-20 overflow-x-hidden gap-20">
         {children}

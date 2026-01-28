@@ -9,6 +9,7 @@ export default function ConactWithMe() {
     <SectionWrapper
       miniHeaderText="Connect with me"
       headerText="Get in touch"
+      sectionId="contactme"
     >
       <div className='w-full md:w-[70%] lg:w-[50%] h-full flex flex-col items-center justify-center gap-12'>
         <span className='text-center text-white text-sm md:text-base'>I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.</span>
