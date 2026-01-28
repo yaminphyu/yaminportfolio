@@ -14,8 +14,8 @@ export const Logo = ({
   return (
     <div className="text-white text-xl font-semibold">
       <Link href="/">
-        <span className={isFooter ? 'text-2xl md:text-3xl' : 'text-lg'}>{THEME}</span>
-        <span className={`text-purple-500 ${isFooter ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>.</span>
+        <span className={isFooter ? 'text-xl md:text-3xl' : 'text-lg'}>{THEME}</span>
+        <span className={`text-[#e631f6] ${isFooter ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>.</span>
       </Link>
     </div>
   );

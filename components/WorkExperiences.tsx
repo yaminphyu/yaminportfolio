@@ -10,7 +10,7 @@ export default function WorkExperiences() {
       miniHeaderText="My portfolio"
       headerText="My work experiences"
     >
-      <span className='text-center text-white'>Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end development.</span>
+      <span className='text-sm md:text-base text-center text-white'>Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end development.</span>
       <div className="w-full lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {[1, 2, 3, 4].map(i => (
           <div
@@ -31,8 +31,8 @@ export default function WorkExperiences() {
                 group-hover:translate-y-0
               ">
               <div className="flex flex-col justify-center h-full">
-                <h3 className="text-gray-900 text-lg font-semibold">Project Title {i}</h3>
-                <p className="text-sm text-gray-800">Web Design</p>
+                <h3 className="text-gray-900 text-base md:text-lg font-semibold">Project Title {i}</h3>
+                <h5 className="text-sm text-gray-800">Web Design</h5>
               </div>
 
               <FontAwesomeIcon icon={faRecycle} className="text-2xl text-gray-800" />
@@ -43,7 +43,7 @@ export default function WorkExperiences() {
       <div className='w-full flex justify-center items-center mt-6'>
         <Button>
           Show more
-          <FontAwesomeIcon icon={faArrowRight} className="text-lg ml-2" />
+          <FontAwesomeIcon icon={faArrowRight} className="text-base md:text-lg ml-2" />
         </Button>
       </div>
     </SectionWrapper>
