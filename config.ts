@@ -5,6 +5,8 @@ export const SITE_DESCRIPTION = 'Welcome to my personal portfolio website showca
 export const THEME = process.env.NEXT_PUBLIC_THEME;
 export const LINKEDIN_PROFILE = process.env.NEXT_PUBLIC_LINKEDIN_PROFILE;
 export const GITHUB_PROFILE = process.env.NEXT_PUBLIC_GITHUB_PROFILE;
+export const EMAIL_USER = process.env.NEXT_PUBLIC_EMAIL_USER;
+export const EMAIL_PASS = process.env.NEXT_PUBLIC_EMAIL_PASS;
 
 type NavItem = {
   name: string;
