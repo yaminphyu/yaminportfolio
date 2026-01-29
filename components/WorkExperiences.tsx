@@ -81,7 +81,7 @@ const WorkExpForPC = () => {
 
 const WorkExpForMobile = () => {
   return (
-    <div className='flex lg:hidden flex-col gap-8 mt-10 w-full'>
+    <div className='flex lg:hidden flex-col gap-10 mt-10 w-full'>
       {
         WORK_EXPERIENCES.map((work, index) => {
           return (
@@ -103,12 +103,12 @@ const WorkExpForMobile = () => {
                     className={work?.logo ? 'flex' : 'hidden'}
                   />
                   <div className='flex flex-col justify-center items-start'>
-                    <span className='font-semibold text-white'>{work.companyName}</span>
-                    <span className='font-semibold text-gray-200'>{work.location}</span>
+                    <span className='font-medium text-gray-200'>{work.companyName}</span>
+                    <span className='font-medium text-gray-300'>{work.location}</span>
                   </div>
                 </div>
               </div>
-              <div>{work.description}</div>
+              <div className='text-white'>{work.description}</div>
             </div>
           );
         })
