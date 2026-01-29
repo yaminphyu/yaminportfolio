@@ -37,6 +37,8 @@ export default async function handler(
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error(error);
+    console.log({ EMAIL_USER, EMAIL_PASS });
+    
     return res.status(500).json({ success: false });
   }
 }
