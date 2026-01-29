@@ -22,7 +22,7 @@ export default function SectionWrapper({
           ? 'max-w-[88%] md:max-w-[40%] gap-3 md:gap-5 -mt-20 md:mt-auto px-5'
           : 'max-w-[86%] md:max-w-[78%] gap-5 py-20'
         }
-        relative w-full min-h-[calc(100vh-80px)] flex flex-col items-center justify-center md:p-5
+        relative w-full min-h-[calc(100vh-80px)] flex flex-col items-center justify-center md:py-20 md:px-5
       `}
       id={sectionId}
     >
