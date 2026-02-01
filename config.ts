@@ -3,10 +3,12 @@ import { faBriefcase, faGraduationCap } from "@fortawesome/free-solid-svg-icons"
 export const SITE_NAME = 'My Portfolio';
 export const SITE_DESCRIPTION = 'Welcome to my personal portfolio website showcasing my skills and projects as a web developer.';
 export const THEME = process.env.NEXT_PUBLIC_THEME;
+export const NAME = process.env.NEXT_PUBLIC_NAME;
 export const LINKEDIN_PROFILE = process.env.NEXT_PUBLIC_LINKEDIN_PROFILE;
 export const GITHUB_PROFILE = process.env.NEXT_PUBLIC_GITHUB_PROFILE;
 export const EMAIL_USER = process.env.NEXT_PUBLIC_EMAIL_USER;
 export const EMAIL_PASS = process.env.NEXT_PUBLIC_EMAIL_PASS;
+export const RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY;
 
 type NavItem = {
   name: string;
@@ -55,6 +57,8 @@ export const LANGUAGES = [
   'CSS',
   'Bootstrap',
   'Tailwind CSS',
+  'Material UI',
+  'Chakra UI',
   'JavaScript',
   'TypeScript',
   'React',

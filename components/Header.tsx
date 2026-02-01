@@ -7,6 +7,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Button from './Button';
 import { useSidebarToggle } from '@/context/SidebarToggleContext';
 import { handleScroll } from '@/util';
+import useHandleScroll from '@/hooks/useHandleScroll';
 
 interface LogoProps {
   isFooter?: boolean;
@@ -58,8 +59,11 @@ const HireMe = ({
       <Button cusCss='w-10 h-10 !p-0 flex items-center justify-center'>
         <FontAwesomeIcon icon={faMoon} />
       </Button>
-      <Button cusCss='hidden md:flex'>
-        Hire me
+      <Button
+        cusCss='hidden md:flex'
+        onClick={() => handleScroll('contact-me')}
+      >
+        Contact me
       </Button>
       <MobileSidebarToggle toggleSidebar={toggleSidebar} />
     </div>
@@ -85,16 +89,7 @@ const MobileSidebarToggle = ({
 export default function Header() {
   const { toggleSidebar } = useSidebarToggle();
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrolled } = useHandleScroll();
 
   return (
     <header

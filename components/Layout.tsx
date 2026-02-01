@@ -8,7 +8,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="w-full min-h-[100vmh] flex flex-col bg-[#130819] pb-10">
+    <div className="w-full min-h-[100vmh] flex flex-col bg-[#11001F] pb-10">
       <Header />
       <MobileSidebar />
 

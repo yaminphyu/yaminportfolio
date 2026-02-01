@@ -72,7 +72,7 @@ export default function ConactWithMe() {
               <input
                 type="text"
                 placeholder='Enter your name'
-                className='w-1/2 p-2.5 rounded-md bg-[#1e0f36] border border-white/30 text-white text-sm md:text-base'
+                className='w-1/2 p-2.5 rounded-md bg-[#18012B] border border-white/30 text-white text-sm md:text-base'
                 value={contactInformation?.name}
                 onChange={(e) => {
                   setContactInformation({
@@ -84,7 +84,7 @@ export default function ConactWithMe() {
               <input
                 type="email"
                 placeholder='Enter your email'
-                className='w-1/2 p-2.5 rounded-md bg-[#1e0f36] border border-white/30 text-white text-sm md:text-base'
+                className='w-1/2 p-2.5 rounded-md bg-[#18012B] border border-white/30 text-white text-sm md:text-base'
                 value={contactInformation?.email}
                 onChange={(e) => {
                   setContactInformation({
@@ -97,7 +97,7 @@ export default function ConactWithMe() {
             <textarea
               placeholder='Enter your message'
               rows={8}
-              className='p-2.5 rounded-md bg-[#1e0f36] border border-white/30 text-white w-full text-sm md:text-base'
+              className='p-2.5 rounded-md bg-[#18012B] border border-white/30 text-white w-full text-sm md:text-base'
               value={contactInformation?.message}
               onChange={(e) => {
                 setContactInformation({

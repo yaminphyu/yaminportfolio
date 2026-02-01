@@ -3,6 +3,8 @@ import { faArrowRight, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import SectionWrapper from './SectionWrapper'
+import { downloadPdf, handleScroll } from '@/util'
+import { NAME } from '@/config'
 
 export default function HeroSection() {
   return (
@@ -17,13 +19,14 @@ export default function HeroSection() {
         height={120}
         className="rounded-full"
       />
-      <h3 className="text-base md:text-xl text-white">Hi! I'm Eliana Jade</h3>
-      <h1 className="text-center font-semibold text-2xl md:text-5xl mt-5 text-white">frontend web developer based in London.</h1>
-      <p className="text-center text-sm md:text-base leading-5 md:leading-8 text-white">I am a frontend developer from California, USA with 10 years of experience in multiple companies like Microsoft, Tesla and Apple.</p>
+      <h3 className="text-base md:text-xl text-white">Hi! I'm {NAME}</h3>
+      <h1 className="text-center font-semibold text-2xl md:text-5xl mt-5 text-white">frontend developer</h1>
+      <p className="text-center text-sm md:text-base leading-5 md:leading-8 text-white">I have over 5 years of experience building scalable frontend systems with React and Next.js, focusing on performance, maintainability, and clean UI architecture.</p>
       <div className="flex items-center gap-4">
         <button
           className="w-36 h-12 p-1 flex items-center justify-center rounded-full text-white font-semibold cursor-pointer text-sm md:text-base bg-linear-to-r from-purple-500 to-pink-500"
           aria-label="Toggle theme"
+          onClick={() => handleScroll('contact-me')}
         >
           contact me
           <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
@@ -32,6 +35,7 @@ export default function HeroSection() {
         <button
           className="w-36 h-12 p-1 flex items-center justify-center rounded-full text-white font-semibold cursor-pointer text-sm md:text-base border border-white/30"
           aria-label="Toggle theme"
+          onClick={downloadPdf}
         >
           my resume
           <FontAwesomeIcon icon={faDownload} className="ml-1" />

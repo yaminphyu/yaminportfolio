@@ -25,3 +25,24 @@ export const handleScroll = (id: string, duration = 1000) => {
 
   requestAnimationFrame(animateScroll);
 };
+
+export const downloadPdf = async () => {
+  const url = '/files/YaminPhyuResume.pdf';
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Failed to fetch PDF');
+  }
+
+  const blob = await response.blob();
+
+  const link = document.createElement('a');
+  link.href = window.URL.createObjectURL(blob);
+  link.download = 'YaminPhyuResume.pdf';
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  URL.revokeObjectURL(link.href);
+};

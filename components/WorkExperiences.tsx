@@ -124,7 +124,6 @@ export default function WorkExperiences() {
       headerText="My work experiences"
       sectionId="my-work"
     >
-      <span className='text-sm md:text-base text-center text-white'>Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end development.</span>
       <WorkExpForPC />
       <WorkExpForMobile />
     </SectionWrapper>

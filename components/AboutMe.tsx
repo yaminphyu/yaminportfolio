@@ -56,7 +56,7 @@ export default function AboutMe() {
           </div>
         </div>
         <div className='flex flex-col w-full lg:w-[50%] xl:w-[60%] h-auto gap-5'>
-          <span className='text-sm md:text-base font-medium text-white'>I am an experienced Frontend Developer with over a decade of professional expertise in the field. Throughout my career, I have had the privilege of collaborating with prestigious organizations, contributing to their success and growth.</span>
+          <span className='text-sm md:text-base font-medium text-white'>I have over 5 years of experience building responsive web applications. Passionate about clean, maintainable, and reusable code, and creating user experiences and collaboration with cross-functional teams to deliver high-quality products. I particularly relish the challenge of debugging and resolving errors.</span>
 
           <div className='w-full flex mt-4 gap-2 relative flex-wrap'>
             {
@@ -73,7 +73,7 @@ export default function AboutMe() {
                       p-6
                       transition-all duration-300 ease-out
                       hover:-translate-y-2
-                      hover:bg-[#11072f]
+                      hover:bg-[#18012B]
                     "
                   >
                     <div className="mb-4 text-gray-300">
