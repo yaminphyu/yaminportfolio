@@ -21,7 +21,7 @@ export default function AboutMe() {
             className="rounded-xl"
           />
 
-          <div className="absolute -bottom-6 -right-8 xl:right-10 w-20 xl:w-36 h-20 xl:h-36 rounded-full bg-white flex items-center justify-center">
+          <div className="absolute -bottom-6 -right-8 xl:right-10 w-20 xl:w-36 h-20 xl:h-36 rounded-full bg-white flex items-center justify-center shadow-md">
             <svg
               viewBox="0 0 100 100"
               className="w-full h-full animate-spin-slow"
@@ -56,7 +56,7 @@ export default function AboutMe() {
           </div>
         </div>
         <div className='flex flex-col w-full lg:w-[50%] xl:w-[60%] h-auto gap-5'>
-          <span className='text-sm md:text-base font-medium text-white'>I have over 5 years of experience building responsive web applications. Passionate about clean, maintainable, and reusable code, and creating user experiences and collaboration with cross-functional teams to deliver high-quality products. I particularly relish the challenge of debugging and resolving errors.</span>
+          <span className='text-sm md:text-base font-medium text-[#11001F] dark:text-white'>I have over 5 years of experience building responsive web applications. Passionate about clean, maintainable, and reusable code, and creating user experiences and collaboration with cross-functional teams to deliver high-quality products. I particularly relish the challenge of debugging and resolving errors.</span>
 
           <div className='w-full flex mt-4 gap-2 relative flex-wrap'>
             {
@@ -68,23 +68,23 @@ export default function AboutMe() {
                       group
                       w-full max-w-full md:max-w-68
                       rounded-2xl
-                      border border-white/20
+                      border border-gray-350 dark:border-white/20
                       bg-transparent
                       p-6
                       transition-all duration-300 ease-out
                       hover:-translate-y-2
-                      hover:bg-[#18012B]
+                      hover:bg-gray-300 dark:hover:bg-[#18012B]
                     "
                   >
-                    <div className="mb-4 text-gray-300">
+                    <div className="mb-4 text-[#11001F] dark:text-gray-300">
                       <FontAwesomeIcon icon={item.icon} size="2x" />
                     </div>
 
-                    <h3 className="text-white font-semibold mb-2">
+                    <h3 className="text-[#11001F] dark:text-white font-semibold mb-2">
                       {item.name}
                     </h3>
 
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-[#11001F] dark:text-gray-300 text-sm leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -94,7 +94,7 @@ export default function AboutMe() {
           </div>
 
           <div className='flex flex-col justify-center items-start w-full mt-4'>
-            <h3 className='text-lg font-semibold mb-2 text-white'>Languages & Frameworks</h3>
+            <h3 className='text-lg font-semibold mb-2 text-[#11001F] dark:text-white'>Languages & Frameworks</h3>
             <div className='w-full flex mt-4 gap-2 relative flex-wrap'>
               {
                 LANGUAGES.map((language, index) => {
@@ -105,10 +105,10 @@ export default function AboutMe() {
                         px-5
                         py-2
                         bg-transparent
-                        border border-white/50
+                        border border-gray-600 dark:border-white/50
                         rounded-full
                         text-sm
-                        text-gray-200
+                        text-gray-500 dark:text-gray-200
                         font-medium
                       "
                     >

@@ -26,8 +26,8 @@ export default function SectionWrapper({
       `}
       id={sectionId}
     >
-      <h3 className='text-base md:text-xl text-white'>{miniHeaderText}</h3>
-      <h2 className="text-2xl md:text-4xl font-semibold mb-4 text-white">{headerText}</h2>
+      <h3 className='text-base md:text-xl text-[#11001F] dark:text-white'>{miniHeaderText}</h3>
+      <h2 className="text-2xl md:text-4xl font-semibold mb-4 text-[#11001F] dark:text-white">{headerText}</h2>
       {children}
     </section>
   )

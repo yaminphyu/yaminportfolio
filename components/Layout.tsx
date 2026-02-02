@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import MobileSidebar from './MobileSidebar';
 
@@ -7,8 +7,16 @@ type LayoutProps = {
 };
 
 export default function Layout({ children }: LayoutProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return <></>
+
   return (
-    <div className="w-full min-h-[100vmh] flex flex-col bg-[#11001F] pb-10">
+    <div className="w-full min-h-[100vmh] flex flex-col bg-white dark:bg-[#11001F] pb-10">
       <Header />
       <MobileSidebar />
 

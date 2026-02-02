@@ -59,7 +59,7 @@ export default function ConactWithMe() {
       sectionId="contact-me"
     >
       <div className='w-full md:w-[70%] lg:w-[50%] h-full flex flex-col items-center justify-center gap-12'>
-        <span className='text-center text-white text-sm md:text-base'>I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.</span>
+        <span className='text-center text-[#11001F] dark:text-white text-sm md:text-base'>I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.</span>
         <div className='w-full'>
           <form
             className='flex flex-col gap-8'
@@ -72,7 +72,7 @@ export default function ConactWithMe() {
               <input
                 type="text"
                 placeholder='Enter your name'
-                className='w-1/2 p-2.5 rounded-md bg-[#18012B] border border-white/30 text-white text-sm md:text-base'
+                className='w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
                 value={contactInformation?.name}
                 onChange={(e) => {
                   setContactInformation({
@@ -84,7 +84,7 @@ export default function ConactWithMe() {
               <input
                 type="email"
                 placeholder='Enter your email'
-                className='w-1/2 p-2.5 rounded-md bg-[#18012B] border border-white/30 text-white text-sm md:text-base'
+                className='w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
                 value={contactInformation?.email}
                 onChange={(e) => {
                   setContactInformation({
@@ -97,7 +97,7 @@ export default function ConactWithMe() {
             <textarea
               placeholder='Enter your message'
               rows={8}
-              className='p-2.5 rounded-md bg-[#18012B] border border-white/30 text-white w-full text-sm md:text-base'
+              className='p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white w-full text-sm md:text-base'
               value={contactInformation?.message}
               onChange={(e) => {
                 setContactInformation({

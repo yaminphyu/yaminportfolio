@@ -12,12 +12,12 @@ export default function MobileSidebar() {
 
   return (
     <aside className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50">
-      <div className="fixed top-0 right-0 w-64 h-full bg-[#1e0e2f] shadow-lg p-6 flex flex-col">
+      <div className="fixed top-0 right-0 w-64 h-full bg-white dark:bg-[#11001F] shadow-lg p-6 flex flex-col">
 
         <div className="flex justify-end">
           <FontAwesomeIcon
             icon={faXmark}
-            className="text-white text-xl cursor-pointer"
+            className="text-[#11001F] dark:text-white text-xl cursor-pointer"
             onClick={closeSidebar}
           />
         </div>
@@ -30,7 +30,7 @@ export default function MobileSidebar() {
                   handleScroll(nav?.id);
                   closeSidebar();
                 }}
-                className="text-white hover:text-white/80 transition"
+                className="text-[#11001F] dark:text-white hover:text-white/80 transition"
               >
                 {nav.name}
               </button>

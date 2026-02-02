@@ -15,7 +15,7 @@ const WorkExpForPC = () => {
             className="relative max-w-5xl mx-auto"
           >
             {/* Vertical line */}
-            <div className="absolute left-1/2 top-0 h-full w-0.5 bg-gray-200" />
+            <div className="absolute left-1/2 top-0 h-full w-0.5 bg-[#140620] dark:bg-gray-200" />
 
             <div className="grid grid-cols-[1fr_70px_1fr] py-10 items-center">
               
@@ -32,20 +32,20 @@ const WorkExpForPC = () => {
                         className="mb-2 ml-auto"
                       />
                     </div>
-                    <h2 className="text-white text-base">{work.year}</h2>
-                    <p className='text-white text-lg font-bold'>{work.companyName}</p>
-                    <p className="text-white mt-2 font-semibold">{work.role}</p>
+                    <h2 className="text-[#11001F] dark:text-white text-base">{work.year}</h2>
+                    <p className='text-[#11001F] dark:text-white text-lg font-bold'>{work.companyName}</p>
+                    <p className="text-[#11001F] dark:text-white mt-2 font-semibold">{work.role}</p>
                   </>
                 ) : (
                   <>
-                    <span className="text-gray-200">{work.description}</span>
+                    <span className="text-[#11001F] dark:text-gray-200">{work.description}</span>
                   </>
                 )}
               </div>
 
               {/* CENTER DOT */}
               <div className="flex justify-center items-start">
-                <span className="w-4 h-4 rounded-full bg-white z-10" />
+                <span className="w-4 h-4 rounded-full bg-[#140620] dark:bg-white z-10" />
               </div>
 
               {/* RIGHT */}
@@ -61,13 +61,13 @@ const WorkExpForPC = () => {
                         className="mb-2 mr-auto"
                       />
                     </div>
-                    <h2 className="text-white text-base">{work.year}</h2>
-                    <p className='text-white text-lg font-bold'>{work.companyName}</p>
-                    <p className="text-white mt-2 font-semibold">{work.role}</p>
+                    <h2 className="text-[#11001F] dark:text-white text-base">{work.year}</h2>
+                    <p className='text-[#11001F] dark:text-white text-lg font-bold'>{work.companyName}</p>
+                    <p className="text-[#11001F] dark:text-white mt-2 font-semibold">{work.role}</p>
                   </>
                 ) : (
                   <>
-                    <span className="text-gray-200">{work.description}</span>
+                    <span className="text-[#11001F] dark:text-gray-200">{work.description}</span>
                   </>
                 )}
               </div>
@@ -90,7 +90,7 @@ const WorkExpForMobile = () => {
               className='w-full flex flex-col'
             >
               <div className='mb-2 flex flex-col gap-3'>
-                <div className='flex justify-between items-center font-semibold text-white'>
+                <div className='flex justify-between items-center font-semibold text-[#11001F] dark:text-white'>
                   <span>{work.role}</span>
                   <span>{work.year}</span>
                 </div>
@@ -103,12 +103,12 @@ const WorkExpForMobile = () => {
                     className={work?.logo ? 'flex' : 'hidden'}
                   />
                   <div className='flex flex-col justify-center items-start'>
-                    <span className='font-medium text-gray-200'>{work.companyName}</span>
-                    <span className='font-medium text-gray-300'>{work.location}</span>
+                    <span className='font-medium text-[#11001F] dark:text-gray-200'>{work.companyName}</span>
+                    <span className='font-medium text-[#11001F] dark:text-gray-300'>{work.location}</span>
                   </div>
                 </div>
               </div>
-              <div className='text-white'>{work.description}</div>
+              <div className='text-[#11001F] dark:text-white'>{work.description}</div>
             </div>
           );
         })
