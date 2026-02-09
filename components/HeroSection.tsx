@@ -9,6 +9,7 @@ import { useTranslate } from '@/hooks/useTranslate'
 
 export default function HeroSection() {
   const lang = useTranslate();
+  const name = lang(NAME as "Yamin Phyu");
 
   return (
     <SectionWrapper
@@ -22,7 +23,7 @@ export default function HeroSection() {
         height={120}
         className="rounded-full"
       />
-      <h3 className="text-base md:text-xl text-[#11001F] dark:text-white">{lang(`Hi! I'm {0}`, [lang(NAME)])}</h3>
+      <h3 className="text-base md:text-xl text-[#11001F] dark:text-white">{lang(`Hi! I'm {0}`, { 0: name })}</h3>
       <h1 className="text-center font-semibold text-2xl md:text-5xl mt-5 text-[#11001F] dark:text-white">frontend developer</h1>
       <p className="text-center text-sm md:text-base leading-5 md:leading-8 text-[#11001F] dark:text-white">{lang('hero content')}</p>
       <div className="flex items-center gap-4">

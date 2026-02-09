@@ -1,17 +1,18 @@
 import { faBriefcase, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import { Messages } from "./types";
 
-export const SITE_NAME = 'My Portfolio';
-export const SITE_DESCRIPTION = 'Welcome to my personal portfolio website showcasing my skills and projects as a web developer.';
-export const THEME = process.env.NEXT_PUBLIC_THEME;
-export const NAME = process.env.NEXT_PUBLIC_NAME;
-export const LINKEDIN_PROFILE = process.env.NEXT_PUBLIC_LINKEDIN_PROFILE;
-export const GITHUB_PROFILE = process.env.NEXT_PUBLIC_GITHUB_PROFILE;
-export const EMAIL_USER = process.env.NEXT_PUBLIC_EMAIL_USER;
-export const EMAIL_PASS = process.env.NEXT_PUBLIC_EMAIL_PASS;
-export const RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY;
+export const SITE_NAME = 'My Portfolio' as string;
+export const SITE_DESCRIPTION = 'Welcome to my personal portfolio website showcasing my skills and projects as a web developer.' as string;
+export const THEME = process.env.NEXT_PUBLIC_THEME as string;
+export const NAME = process.env.NEXT_PUBLIC_NAME as string;
+export const LINKEDIN_PROFILE = process.env.NEXT_PUBLIC_LINKEDIN_PROFILE as string;
+export const GITHUB_PROFILE = process.env.NEXT_PUBLIC_GITHUB_PROFILE as string;
+export const EMAIL_USER = process.env.NEXT_PUBLIC_EMAIL_USER as string;
+export const EMAIL_PASS = process.env.NEXT_PUBLIC_EMAIL_PASS as string;
+export const RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY as string;
 
 type NavItem = {
-  name: string;
+  name: keyof Messages;
   href: string;
   id: string;
 };

@@ -3,9 +3,10 @@ import SectionWrapper from './SectionWrapper'
 import { WORK_EXPERIENCES } from '@/config'
 import Image from 'next/image'
 import { useTranslate } from '@/hooks/useTranslate';
+import { TranslateFn } from '@/types';
 
 type LangProps = {
-  lang: (key: string) => string
+  lang: TranslateFn
 }
 
 const WorkExpForPC = ({ lang }: LangProps) => {

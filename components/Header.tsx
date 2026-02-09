@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import { NAV_LIST, SYSTEM_LANGUAGES, THEME } from '@/config';
 import { faMoon } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,9 +7,8 @@ import { faAngleDown, faBars } from '@fortawesome/free-solid-svg-icons';
 import Button from './Button';
 import { handleScroll } from '@/util';
 import { useTranslate } from '@/hooks/useTranslate';
-import { HeaderProps } from '@/types';
+import { HeaderProps, TranslateFn } from '@/types';
 import { useRouter } from 'next/router';
-import { SYSTEM_ENTRYPOINTS } from 'next/dist/shared/lib/constants';
 
 interface LogoProps {
   isFooter?: boolean;
@@ -33,7 +32,7 @@ const NavBarItem = ({
   lang
 }: {
   handleScroll: (id: string) => void;
-  lang: (key: string) => string;
+  lang: TranslateFn
 }) => {
   return (
     <nav className="hidden md:flex">
@@ -69,8 +68,8 @@ const HireMe = ({
   changeLang: (lang: string) => void;
   setOpen: (key: boolean) => void;
   open: boolean,
-  langRef: React.RefObject<HTMLDivElement>;
-  lang: (key: string) => string;
+  langRef: React.RefObject<HTMLDivElement | null>;
+  lang: TranslateFn;
 }) => {
   return (
     <div className="flex items-center gap-4">
@@ -163,7 +162,7 @@ export default function Header({
   const lang = useTranslate();
 
   const [open, setOpen] = useState(false);
-  const langRef = useRef<HTMLDivElement>(null);
+  const langRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const { locale } = router;
 
