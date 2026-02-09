@@ -2,8 +2,13 @@ import React from 'react'
 import SectionWrapper from './SectionWrapper'
 import { WORK_EXPERIENCES } from '@/config'
 import Image from 'next/image'
+import { useTranslate } from '@/hooks/useTranslate';
 
-const WorkExpForPC = () => {
+type LangProps = {
+  lang: (key: string) => string
+}
+
+const WorkExpForPC = ({ lang }: LangProps) => {
   return (
     <div className="w-full mt-10 hidden lg:flex flex-col">
       {WORK_EXPERIENCES.map((work, index) => {
@@ -32,13 +37,13 @@ const WorkExpForPC = () => {
                         className="mb-2 ml-auto"
                       />
                     </div>
-                    <h2 className="text-[#11001F] dark:text-white text-base">{work.year}</h2>
+                    <h2 className="text-[#11001F] dark:text-white text-base">{lang(work.year)}</h2>
                     <p className='text-[#11001F] dark:text-white text-lg font-bold'>{work.companyName}</p>
                     <p className="text-[#11001F] dark:text-white mt-2 font-semibold">{work.role}</p>
                   </>
                 ) : (
                   <>
-                    <span className="text-[#11001F] dark:text-gray-200">{work.description}</span>
+                    <span className="text-[#11001F] dark:text-gray-200">{lang(work.description)}</span>
                   </>
                 )}
               </div>
@@ -61,13 +66,13 @@ const WorkExpForPC = () => {
                         className="mb-2 mr-auto"
                       />
                     </div>
-                    <h2 className="text-[#11001F] dark:text-white text-base">{work.year}</h2>
+                    <h2 className="text-[#11001F] dark:text-white text-base">{lang(work.year)}</h2>
                     <p className='text-[#11001F] dark:text-white text-lg font-bold'>{work.companyName}</p>
                     <p className="text-[#11001F] dark:text-white mt-2 font-semibold">{work.role}</p>
                   </>
                 ) : (
                   <>
-                    <span className="text-[#11001F] dark:text-gray-200">{work.description}</span>
+                    <span className="text-[#11001F] dark:text-gray-200">{lang(work.description)}</span>
                   </>
                 )}
               </div>
@@ -79,7 +84,7 @@ const WorkExpForPC = () => {
   );
 };
 
-const WorkExpForMobile = () => {
+const WorkExpForMobile = ({ lang }: LangProps) => {
   return (
     <div className='flex lg:hidden flex-col gap-10 mt-10 w-full'>
       {
@@ -92,7 +97,7 @@ const WorkExpForMobile = () => {
               <div className='mb-2 flex flex-col gap-3'>
                 <div className='flex justify-between items-center font-semibold text-[#11001F] dark:text-white'>
                   <span>{work.role}</span>
-                  <span>{work.year}</span>
+                  <span>{lang(work.year)}</span>
                 </div>
                 <div className='flex flex-col justify-center gap-3'>
                   <Image
@@ -108,7 +113,7 @@ const WorkExpForMobile = () => {
                   </div>
                 </div>
               </div>
-              <div className='text-[#11001F] dark:text-white'>{work.description}</div>
+              <div className='text-[#11001F] dark:text-white'>{lang(work.description)}</div>
             </div>
           );
         })
@@ -118,14 +123,16 @@ const WorkExpForMobile = () => {
 }
 
 export default function WorkExperiences() {
+  const lang = useTranslate();
+
   return (
     <SectionWrapper
-      miniHeaderText="My portfolio"
-      headerText="My work experiences"
+      miniHeaderText={lang('My portfolio')}
+      headerText={lang('My work experiences')}
       sectionId="my-work"
     >
-      <WorkExpForPC />
-      <WorkExpForMobile />
+      <WorkExpForPC lang={lang} />
+      <WorkExpForMobile lang={lang} />
     </SectionWrapper>
   )
 }

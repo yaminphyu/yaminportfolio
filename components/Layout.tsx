@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import MobileSidebar from './MobileSidebar';
+import useIndex from '@/hooks/useIndex';
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 export default function Layout({ children }: LayoutProps) {
+  const {
+    toggleSidebar,
+    scrolled,
+    handleTheme
+  } = useIndex();
+
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -17,7 +24,11 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="w-full min-h-[100vmh] flex flex-col bg-white dark:bg-[#11001F] pb-10">
-      <Header />
+      <Header
+        toggleSidebar={toggleSidebar}
+        scrolled={scrolled}
+        handleTheme={handleTheme}
+      />
       <MobileSidebar />
 
       <main className="w-full flex flex-col justify-center items-center pt-20 overflow-x-hidden gap-20">

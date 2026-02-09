@@ -1,8 +1,8 @@
-import { SOCIAL_MEDIA } from '@/config'
+import React from 'react'
+import { EMAIL_USER, SOCIAL_MEDIA, THEME } from '@/config'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import React from 'react'
 import { Logo } from './Header';
 
 export default function Footer() {
@@ -14,10 +14,10 @@ export default function Footer() {
       </div>
       <div className='w-full flex items-center justify-center text-[#11001F] dark:text-white'>
         <FontAwesomeIcon icon={faEnvelope} className="text-lg md:text-2xl mr-3" />
-        <a className='text-sm md:text-base' href="mailto:contact@prebuiltui.com">contact@prebuiltui.com</a>
+        <a className='text-sm md:text-base' href={`mailto:${EMAIL_USER}`}>{EMAIL_USER}</a>
       </div>
       <div className="max-w-[86%] w-full h-full flex flex-col lg:flex-row items-center justify-center md:justify-between border-t border-gray-800 dark:border-white/70 gap-5 lg:gap-0 py-2">
-      <span className='text-[#11001F] dark:text-white text-sm md:text-base'>© 2025 PrebuiltUI. All rights reserved. Distributed by ThemeWagon</span>
+      <span className='text-[#11001F] dark:text-white text-sm md:text-base'>{`© 2025 ${THEME}. All rights reserved.`}</span>
       <div>
         <ul className='flex justify-center gap-7'>
           {

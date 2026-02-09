@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { useTranslate } from '@/hooks/useTranslate'
 
 export default function ConactWithMe() {
+  const lang = useTranslate();
+
   const [contactInformation, setContactInformation] = useState({
     name: '',
     email: '',
@@ -54,12 +57,12 @@ export default function ConactWithMe() {
 
   return (
     <SectionWrapper
-      miniHeaderText="Connect with me"
-      headerText="Get in touch"
+      miniHeaderText="ကျွန်ုပ်နှင့် ဆက်သွယ်ပါ"
+      headerText="ဆက်သွယ်ပါ"
       sectionId="contact-me"
     >
       <div className='w-full md:w-[70%] lg:w-[50%] h-full flex flex-col items-center justify-center gap-12'>
-        <span className='text-center text-[#11001F] dark:text-white text-sm md:text-base'>I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.</span>
+        <span className='text-center text-[#11001F] dark:text-white text-sm md:text-base'>{lang('any questions')}</span>
         <div className='w-full'>
           <form
             className='flex flex-col gap-8'
@@ -71,7 +74,7 @@ export default function ConactWithMe() {
             <div className='w-full flex gap-4'>
               <input
                 type="text"
-                placeholder='Enter your name'
+                placeholder={lang('Enter your name')}
                 className='w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
                 value={contactInformation?.name}
                 onChange={(e) => {
@@ -83,7 +86,7 @@ export default function ConactWithMe() {
               />
               <input
                 type="email"
-                placeholder='Enter your email'
+                placeholder={lang('Enter your email')}
                 className='w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
                 value={contactInformation?.email}
                 onChange={(e) => {
@@ -95,7 +98,7 @@ export default function ConactWithMe() {
               />
             </div>
             <textarea
-              placeholder='Enter your message'
+              placeholder={lang('Enter your message')}
               rows={8}
               className='p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white w-full text-sm md:text-base'
               value={contactInformation?.message}
@@ -110,7 +113,7 @@ export default function ConactWithMe() {
               <Button
                 type='submit'
               >
-                Submit now
+                {lang('Submit now')}
                 <FontAwesomeIcon icon={faArrowRight} className="text-base md:text-lg ml-2" />
               </Button>
             </div>

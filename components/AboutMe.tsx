@@ -3,8 +3,11 @@ import { ABOUT_ME, LANGUAGES } from '@/config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import SectionWrapper from './SectionWrapper'
+import { useTranslate } from '@/hooks/useTranslate'
 
 export default function AboutMe() {
+  const lang = useTranslate();
+
   return (
     <SectionWrapper
       miniHeaderText="Introduction"
@@ -56,7 +59,7 @@ export default function AboutMe() {
           </div>
         </div>
         <div className='flex flex-col w-full lg:w-[50%] xl:w-[60%] h-auto gap-5'>
-          <span className='text-sm md:text-base font-medium text-[#11001F] dark:text-white'>I have over 5 years of experience building responsive web applications. Passionate about clean, maintainable, and reusable code, and creating user experiences and collaboration with cross-functional teams to deliver high-quality products. I particularly relish the challenge of debugging and resolving errors.</span>
+          <span className='text-sm md:text-base font-medium text-[#11001F] dark:text-white'>{lang('introduction content')}</span>
 
           <div className='w-full flex mt-4 gap-2 relative flex-wrap'>
             {
@@ -81,11 +84,11 @@ export default function AboutMe() {
                     </div>
 
                     <h3 className="text-[#11001F] dark:text-white font-semibold mb-2">
-                      {item.name}
+                      {lang(item.name)}
                     </h3>
 
                     <p className="text-[#11001F] dark:text-gray-300 text-sm leading-relaxed">
-                      {item.description}
+                      {lang(item.description)}
                     </p>
                   </div>
                 )
