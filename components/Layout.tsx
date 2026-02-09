@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import MobileSidebar from './MobileSidebar';
 import useIndex from '@/hooks/useIndex';
+import ScrollUpArrow from './ScrollUpArrow';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -34,6 +35,7 @@ export default function Layout({ children }: LayoutProps) {
       <main className="w-full flex flex-col justify-center items-center pt-20 overflow-x-hidden gap-20">
         {children}
       </main>
+      <ScrollUpArrow />
     </div>
   );
 }
