@@ -57,8 +57,8 @@ export default function ConactWithMe() {
 
   return (
     <SectionWrapper
-      miniHeaderText="ကျွန်ုပ်နှင့် ဆက်သွယ်ပါ"
-      headerText="ဆက်သွယ်ပါ"
+      miniHeaderText={lang("Contact with me")}
+      headerText={lang("Get in touch")}
       sectionId="contact-me"
     >
       <div className='w-full md:w-[70%] lg:w-[50%] h-full flex flex-col items-center justify-center gap-12'>
