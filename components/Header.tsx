@@ -9,6 +9,7 @@ import { handleScroll } from '@/util';
 import { useTranslate } from '@/hooks/useTranslate';
 import { HeaderProps, TranslateFn } from '@/types';
 import { useRouter } from 'next/router';
+import HorizontalScrollbar from './HorizontalScrollbar';
 
 interface LogoProps {
   isFooter?: boolean;
@@ -200,6 +201,7 @@ export default function Header({
         }
       `}
     >
+      <HorizontalScrollbar />
       <div className="max-w-[86%] w-full h-full flex items-center justify-between">
         <Logo />
         <NavBarItem
