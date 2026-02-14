@@ -35,7 +35,7 @@ const NavBarItem = ({
   lang: TranslateFn
 }) => {
   return (
-    <nav className="hidden md:flex">
+    <nav className="hidden lg:flex">
       <ul className="flex items-center gap-10 px-10 py-3 rounded-full border border-gray-500 dark:border-white/20 backdrop-blur-md">
         {NAV_LIST.map((nav, index) => (
           <li key={index}>
@@ -142,7 +142,7 @@ const MobileSidebarToggle = ({
   toggleSidebar: () => void;
 }) => {
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <FontAwesomeIcon
         icon={faBars}
         className="text-[#11001F] dark:text-white text-lg"
