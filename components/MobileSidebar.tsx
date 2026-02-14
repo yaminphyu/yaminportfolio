@@ -17,7 +17,7 @@ export default function MobileSidebar() {
         <div className="flex justify-end">
           <FontAwesomeIcon
             icon={faXmark}
-            className="text-[#11001F] dark:text-white text-xl cursor-pointer"
+            className="text-[#11001F] dark:text-white text-xl"
             onClick={closeSidebar}
           />
         </div>

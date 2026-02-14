@@ -41,7 +41,7 @@ const NavBarItem = ({
           <li key={index}>
             <button
               onClick={() => handleScroll(nav?.id)}
-              className="text-[#11001F] dark:text-white hover:text-[#2c292e] dark:hover:text-white/80 transition cursor-pointer"
+              className="text-[#11001F] dark:text-white hover:text-[#2c292e] dark:hover:text-white/80 transition"
             >
               {lang(nav.name)}
             </button>
@@ -107,7 +107,6 @@ const HireMe = ({
                   className="
                     px-3 py-2 text-xs text-center
                     hover:bg-gray-100 dark:hover:bg-gray-800
-                    cursor-pointer
                     transition
                   "
                 >
@@ -124,7 +123,6 @@ const HireMe = ({
       >
         <FontAwesomeIcon
           icon={faMoon}
-          className='cursor-pointer'
         />
       </Button>
       <Button
@@ -147,7 +145,7 @@ const MobileSidebarToggle = ({
     <div className="md:hidden">
       <FontAwesomeIcon
         icon={faBars}
-        className="text-[#11001F] dark:text-white text-lg cursor-pointer"
+        className="text-[#11001F] dark:text-white text-lg"
         onClick={toggleSidebar}
       />
     </div>

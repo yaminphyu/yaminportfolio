@@ -17,7 +17,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       className={`
-        px-6 py-3 rounded-full font-semibold text-sm md:text-base text-center cursor-pointer
+        px-6 py-3 rounded-full font-semibold text-sm md:text-base text-center
         border border-gray-500 dark:border-white/30
         text-[#11001F] dark:text-white
         bg-transparent hover:bg-gray-100
