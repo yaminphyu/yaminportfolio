@@ -2,12 +2,14 @@ import React from 'react'
 
 interface ButtonProps {
   children: React.ReactNode;
+  arialLabel?: string;
   cusCss?: string;
   onClick?: () => void;
   type?: "button" | "reset" | "submit"
 }
 export default function Button({
   children,
+  arialLabel,
   cusCss,
   onClick,
   type = 'button'
@@ -15,6 +17,7 @@ export default function Button({
   return (
     <button
       type={type}
+      aria-label={arialLabel}
       onClick={onClick}
       className={`
         px-6 py-3 rounded-full font-semibold text-sm md:text-base text-center

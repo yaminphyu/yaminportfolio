@@ -112,6 +112,7 @@ export default function ConactWithMe() {
             <div className='w-full flex justify-center items-center'>
               <Button
                 type='submit'
+                arialLabel='Submit now'
               >
                 {lang('Submit now')}
                 <FontAwesomeIcon icon={faArrowRight} className="text-base md:text-lg ml-2" />

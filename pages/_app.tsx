@@ -7,6 +7,7 @@ import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 import Loading from "@/components/Loading";
 import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(true);
@@ -28,11 +29,21 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
-      <SidebarToggleProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </SidebarToggleProvider>
+      <Head>
+        <title>YaminPhyu's Portfolio</title>
+        <meta name="description" content="Portfolio for YaminPhyu" />
+      </Head>
+      {
+        loading
+          ? <Loading />
+          : (
+            <SidebarToggleProvider>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </SidebarToggleProvider>
+          )
+      }
     </ThemeProvider>
   );
 }

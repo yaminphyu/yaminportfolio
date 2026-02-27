@@ -121,6 +121,7 @@ const HireMe = ({
       <Button
         cusCss='w-10 h-10 !p-0 flex items-center justify-center'
         onClick={handleTheme}
+        arialLabel='Toggle theme'
       >
         <FontAwesomeIcon
           icon={faMoon}
@@ -129,6 +130,7 @@ const HireMe = ({
       <Button
         cusCss='hidden md:flex'
         onClick={() => handleScroll('contact-me')}
+        arialLabel='Contact me'
       >
         {lang('Contact me')}
       </Button>
