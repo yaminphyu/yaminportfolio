@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
       <Head>
-        <title>YaminPhyu's Portfolio</title>
+        <title>YaminPhyu&apos;s Portfolio</title>
         <meta name="description" content="Portfolio for YaminPhyu" />
       </Head>
       {

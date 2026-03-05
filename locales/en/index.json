@@ -29,5 +29,21 @@
   "Submit now": "Submit now",
   "any questions": "I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.",
   "Contact with me": "Contact with me",
-  "Get in touch": "Get in touch"
+  "Get in touch": "Get in touch",
+  "Featured Projects": "Featured Projects",
+  "Projects section subtitle": "A selection of products and platforms I recently worked on.",
+  "E-commerce Dashboard": "E-commerce Dashboard",
+  "Built an analytics dashboard for product, sales, and order management with reusable UI components.": "Built an analytics dashboard for product, sales, and order management with reusable UI components.",
+  "Farmer Support Mobile Web": "Farmer Support Mobile Web",
+  "Implemented responsive features and improved performance for a farmer-focused platform used across Myanmar.": "Implemented responsive features and improved performance for a farmer-focused platform used across Myanmar.",
+  "Realtime Customer Chat Panel": "Realtime Customer Chat Panel",
+  "Integrated websocket-based support chat and ticket handling interface for customer service teams.": "Integrated websocket-based support chat and ticket handling interface for customer service teams.",
+  "View details": "View details",
+  "Project not found": "Project not found",
+  "Back to home": "Back to home",
+  "Empty image": "Empty image",
+  "Languages": "Languages",
+  "Company": "Company",
+  "Development time": "Development time",
+  "Personal development": "Personal development"
 }

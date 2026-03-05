@@ -21,7 +21,7 @@ export default function Footer() {
       <div>
         <ul className='flex justify-center gap-7'>
           {
-            SOCIAL_MEDIA.map((social: any, index: number) => {
+            SOCIAL_MEDIA.map((social: { name: string, url: string }, index: number) => {
               return (
                 <li
                   key={index}

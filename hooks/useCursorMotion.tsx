@@ -8,13 +8,15 @@ export function useCursorMotion() {
   const mouseY: MotionValue<number> = useMotionValue(0);
 
   const x: MotionValue<number> = useSpring(mouseX, {
-    stiffness: 900,
-    damping: 50,
+    stiffness: 1200,
+    damping: 28,
+    mass: 0.35,
   });
 
   const y: MotionValue<number> = useSpring(mouseY, {
-    stiffness: 900,
-    damping: 50,
+    stiffness: 1200,
+    damping: 28,
+    mass: 0.35,
   });
 
   useEffect((): (() => void) => {

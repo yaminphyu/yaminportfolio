@@ -10,6 +10,7 @@ import { useTranslate } from '@/hooks/useTranslate';
 import { HeaderProps, TranslateFn } from '@/types';
 import { useRouter } from 'next/router';
 import HorizontalScrollbar from './HorizontalScrollbar';
+import { useSidebarToggle } from '@/context/SidebarToggleContext';
 
 interface LogoProps {
   isFooter?: boolean;
@@ -29,19 +30,23 @@ export const Logo = ({
 };
 
 const NavBarItem = ({
-  handleScroll,
-  lang
+  onNavigateSection,
+  lang,
+  router
 }: {
-  handleScroll: (id: string) => void;
-  lang: TranslateFn
+  onNavigateSection: (id: string) => void;
+  lang: TranslateFn;
+  router: ReturnType<typeof useRouter>;
 }) => {
+  if (router.pathname !== '/') return <></>;
+
   return (
     <nav className="hidden lg:flex">
       <ul className="flex items-center gap-10 px-10 py-3 rounded-full border border-gray-500 dark:border-white/20 backdrop-blur-md">
         {NAV_LIST.map((nav, index) => (
           <li key={index}>
             <button
-              onClick={() => handleScroll(nav?.id)}
+              onClick={() => onNavigateSection(nav?.id)}
               className="text-[#11001F] dark:text-white hover:text-[#2c292e] dark:hover:text-white/80 transition"
             >
               {lang(nav.name)}
@@ -62,6 +67,8 @@ const HireMe = ({
   open,
   langRef,
   lang,
+  onNavigateSection,
+  router
 }: {
   toggleSidebar: () => void;
   handleTheme: () => void;
@@ -71,6 +78,8 @@ const HireMe = ({
   open: boolean,
   langRef: React.RefObject<HTMLDivElement | null>;
   lang: TranslateFn;
+  onNavigateSection: (id: string) => void;
+  router: ReturnType<typeof useRouter>;
 }) => {
   return (
     <div className="flex items-center gap-4">
@@ -129,23 +138,25 @@ const HireMe = ({
       </Button>
       <Button
         cusCss='hidden md:flex'
-        onClick={() => handleScroll('contact-me')}
+        onClick={() => onNavigateSection('contact-me')}
         arialLabel='Contact me'
       >
         {lang('Contact me')}
       </Button>
-      <MobileSidebarToggle toggleSidebar={toggleSidebar} />
+      <MobileSidebarToggle toggleSidebar={toggleSidebar} router={router} />
     </div>
   );
 };
 
 const MobileSidebarToggle = ({
   toggleSidebar,
+  router
 }: {
   toggleSidebar: () => void;
+  router: ReturnType<typeof useRouter>;
 }) => {
   return (
-    <div className="lg:hidden">
+    <div className={`${router.pathname === '/' ? 'block' : 'hidden'} lg:hidden`}>
       <FontAwesomeIcon
         icon={faBars}
         className="text-[#11001F] dark:text-white text-lg"
@@ -166,6 +177,7 @@ export default function Header({
   const langRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const { locale } = router;
+  const { previewImage } = useSidebarToggle();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -188,7 +200,17 @@ export default function Header({
       router.asPath,
       { locale: lang }
     );
-    setOpen(false); };
+    setOpen(false);
+  };
+
+  const onNavigateSection = (id: string) => {
+    if (router.pathname === '/') {
+      handleScroll(id);
+      return;
+    }
+
+    router.push(`/`);
+  };
 
   return (
     <header
@@ -197,7 +219,7 @@ export default function Header({
         flex items-center justify-center
         transition-all duration-300
         ${
-          scrolled
+          scrolled || previewImage
             ? "bg-gray-100 dark:bg-[#130819]/80 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.4)]"
             : "bg-transparent"
         }
@@ -207,8 +229,9 @@ export default function Header({
       <div className="max-w-[86%] w-full h-full flex items-center justify-between">
         <Logo />
         <NavBarItem
-          handleScroll={handleScroll}
+          onNavigateSection={onNavigateSection}
           lang={lang}
+          router={router}
         />
         <HireMe
           toggleSidebar={toggleSidebar}
@@ -219,6 +242,8 @@ export default function Header({
           open={open}
           langRef={langRef}
           lang={lang}
+          onNavigateSection={onNavigateSection}
+          router={router}
         />
       </div>
     </header>

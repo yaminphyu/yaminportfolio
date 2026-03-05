@@ -1,12 +1,13 @@
-import React from 'react'
 import { useSidebarToggle } from '@/context/SidebarToggleContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { NAV_LIST } from '@/config';
 import { handleScroll } from '@/util';
+import { useRouter } from 'next/router';
 
 export default function MobileSidebar() {
   const { isOpen, closeSidebar } = useSidebarToggle();
+  const router = useRouter();
 
   if (!isOpen) return;
 
@@ -22,7 +23,7 @@ export default function MobileSidebar() {
           />
         </div>
 
-        <ul className="flex flex-col gap-4 mt-6">
+        <ul className={`flex flex-col gap-4 mt-6 ${router.pathname === '/' ? '' : 'hidden'}`}>
           {NAV_LIST.map((nav, index) => (
             <li key={index}>
               <button

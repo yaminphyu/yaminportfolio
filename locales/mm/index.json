@@ -29,5 +29,21 @@
   "Submit now": "ယခုတင်သွင်းပါ",
   "any questions": "သင့်ထံမှ ကြားသိလိုပါတယ်။ မေးခွန်းများ၊ မှတ်ချက်များ သို့မဟုတ် တုံ့ပြန်ချက်များရှိပါက အောက်ပါပုံစံကို အသုံးပြုပါ။",
   "Contact with me": "ကျွန်ုပ်နှင့် ဆက်သွယ်ပါ",
-  "Get in touch": "ဆက်သွယ်ပါ"
+  "Get in touch": "ဆက်သွယ်ပါ",
+  "Featured Projects": "ထင်ရှားသော ပရောဂျက်များ",
+  "Projects section subtitle": "မကြာသေးမီက ကျွန်ုပ်လုပ်ဆောင်ခဲ့သော products နှင့် platforms များထဲမှ ရွေးချယ်ထားသည်။",
+  "E-commerce Dashboard": "E-commerce Dashboard",
+  "Built an analytics dashboard for product, sales, and order management with reusable UI components.": "ပြန်လည်အသုံးပြုနိုင်သော UI components များဖြင့် product, sales နှင့် order management အတွက် analytics dashboard တစ်ခု တည်ဆောက်ခဲ့သည်။",
+  "Farmer Support Mobile Web": "Farmer Support Mobile Web",
+  "Implemented responsive features and improved performance for a farmer-focused platform used across Myanmar.": "မြန်မာနိုင်ငံတဝှမ်း အသုံးပြုသော လယ်သမားအာရုံစိုက် platform အတွက် responsive features များကို တည်ဆောက်ပြီး performance ကို တိုးတက်စေခဲ့သည်။",
+  "Realtime Customer Chat Panel": "Realtime Customer Chat Panel",
+  "Integrated websocket-based support chat and ticket handling interface for customer service teams.": "customer service team များအတွက် websocket အခြေပြု support chat နှင့် ticket handling interface ကို ပေါင်းစပ်တည်ဆောက်ခဲ့သည်။",
+  "View details": "အသေးစိတ်ကြည့်ရန်",
+  "Project not found": "Project မတွေ့ပါ",
+  "Back to home": "ပင်မစာမျက်နှာသို့ ပြန်သွားရန်",
+  "Empty image": "ပုံမရှိသေးပါ",
+  "Languages": "အသုံးပြုထားသော နည်းပညာများ",
+  "Company": "ကုမ္ပဏီ",
+  "Development time": "ဖွံ့ဖြိုးတိုးတက်ချိန်",
+  "Personal development": "ကိုယ်ပိုင်ဖွံ့ဖြိုးတိုးတက်မှု"
 }

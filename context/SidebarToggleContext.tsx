@@ -5,6 +5,8 @@ type SidebarToggleContextType = {
   openSidebar: () => void;
   closeSidebar: () => void;
   toggleSidebar: () => void;
+  previewImage: string | null;
+  setPreviewImage: (image: string | null) => void;
 };
 
 const SidebarToggleContext = createContext<SidebarToggleContextType | undefined>(
@@ -13,27 +15,24 @@ const SidebarToggleContext = createContext<SidebarToggleContextType | undefined>
 
 export const SidebarToggleProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const openSidebar = () => setIsOpen(true);
   const closeSidebar = () => setIsOpen(false);
   const toggleSidebar = () => setIsOpen(prev => !prev);
 
   useEffect(() => {
-    if (!isOpen) {
-      document.body.style.overflow = '';
+    if (isOpen || previewImage) {
+      document.body.style.overflow = 'hidden';
       return;
     }
 
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+    document.body.style.overflow = '';
+  }, [isOpen, previewImage]);
 
   return (
     <SidebarToggleContext.Provider
-      value={{ isOpen, openSidebar, closeSidebar, toggleSidebar }}
+      value={{ isOpen, openSidebar, closeSidebar, toggleSidebar, previewImage, setPreviewImage }}
     >
       {children}
     </SidebarToggleContext.Provider>
