@@ -65,7 +65,7 @@ export default function ProjectDetailPage() {
                     type='button'
                     onClick={() => setPreviewImage(image)}
                     className='w-full h-full cursor-zoom-in'
-                    aria-label={lang('View larger image')}
+                    aria-label='View larger image'
                   >
                     <Image
                       src={image}
@@ -123,7 +123,7 @@ export default function ProjectDetailPage() {
             type='button'
             className='absolute top-5 right-5 text-white text-3xl leading-none'
             onClick={() => setPreviewImage(null)}
-            aria-label={lang('Close image preview')}
+            aria-label='Close image preview'
           >
             ×
           </button>

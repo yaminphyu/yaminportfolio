@@ -13,6 +13,7 @@ export type Params = {
 };
 
 export type TranslateFn = (
-  key: keyof Messages | string,
+  key: keyof Messages,
+  // key: keyof Messages | string,
   params?: Params
 ) => string;
