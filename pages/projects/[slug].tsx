@@ -40,20 +40,29 @@ export default function ProjectDetailPage() {
 
   return (
     <>
-      <main className='min-h-screen px-6 py-8 md:py-10 mx-auto max-w-[90%]'>
-        <Link href='/' className='inline-flex mb-8 underline text-[#11001F] dark:text-white'>
+      <main className='min-h-screen md:px-6 md:py-10 mx-auto max-w-[87%] md:max-w-[90%]'>
+        <Link href='/' className='inline-flex mb-4 md:mb-8 underline text-[#11001F] dark:text-white'>
           {lang('Back to home')}
         </Link>
 
         <div className='rounded-2xl border border-gray-300 dark:border-white/20 p-6 md:p-10 bg-white/80 dark:bg-[#170b22]'>
           <h1 className='text-3xl md:text-4xl font-bold text-[#11001F] dark:text-white'>{project.title}</h1>
 
-          <Link
-            href={`/projects/${project.slug}`}
-            className='mt-4 inline-block text-md font-medium text-[#11001F] dark:text-gray-300 underline underline-offset-2 tracking-wide hover:text-gray-700 dark:hover:text-gray-200'
-          >
-            {project.url}
-          </Link>
+          <div className='flex flex-col md:flex-row mt-4 md:mt-5 gap-1 md:gap-3 justify-start md:justify-between md:items-center'>
+            <span
+              className='px-3 py-1 text-xs rounded-full border border-gray-500 dark:border-white/40 text-[#11001F] dark:text-gray-200 cursor-pointer hover:border-gray-200 hover:text-gray-200 w-20.5'
+              onClick={() => window.open(project.githubUrl, '_blank')}
+            >
+              Github Url
+            </span>
+            <Link
+              href={`${project.url}`}
+              target='_blank'
+              className='inline-block text-md font-medium text-[#11001F] dark:text-gray-300 underline underline-offset-2 tracking-wide hover:text-gray-700 dark:hover:text-gray-200'
+            >
+              {project.url}
+            </Link>
+          </div>
           <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-4'>
             {project.image?.map((image, index) => (
               <div
@@ -87,6 +96,23 @@ export default function ProjectDetailPage() {
               <p key={index} className='leading-7'>{paragraph}</p>
             ))}
           </div>
+
+          <ul className='mt-8 space-y-2'>
+          {project?.keyFeatures.map((item: string, index: number) => (
+            <li
+              key={index}
+              className='flex items-start gap-3'
+            >
+              <span className='mt-1.5 shrink-0 w-4 h-4 rounded-full border-2 border-purple-800 dark:border-purple-900 flex items-center justify-center transition-all duration-200'>
+                <span className='w-1.5 h-1.5 rounded-full bg-purple-900 dark:bg-purple-800 transition-colors duration-200' />
+              </span>
+
+              <span className='leading-6 text-[#11001F] dark:text-gray-300 transition-colors duration-200 font-semibold'>
+                {item}
+              </span>
+            </li>
+          ))}
+        </ul>
 
           <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-5'>
             <div className='rounded-xl border border-gray-300 dark:border-white/20 p-4'>

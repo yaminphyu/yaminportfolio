@@ -10,6 +10,13 @@ export const useSectionHashSync = () => {
   useEffect(() => {
     if (router.pathname !== '/') return;
 
+    if (window.location.hash) {
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
     const handleScroll = () => {
       if (isScrollingByClick.current) return;
 

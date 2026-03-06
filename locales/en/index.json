@@ -38,12 +38,14 @@
   "Implemented responsive features and improved performance for a farmer-focused platform used across Myanmar.": "Implemented responsive features and improved performance for a farmer-focused platform used across Myanmar.",
   "Realtime Customer Chat Panel": "Realtime Customer Chat Panel",
   "Integrated websocket-based support chat and ticket handling interface for customer service teams.": "Integrated websocket-based support chat and ticket handling interface for customer service teams.",
-  "View details": "View details",
+  "Details": "Details",
   "Project not found": "Project not found",
   "Back to home": "Back to home",
   "Empty image": "Empty image",
   "Languages": "Languages",
   "Company": "Company",
   "Development time": "Development time",
-  "Personal development": "Personal development"
+  "Personal development": "Personal development",
+  "Live Demo": "Live Demo",
+  "GitHub": "GitHub"
 }
