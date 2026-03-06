@@ -1,11 +1,19 @@
+export const replaceHash = (id: string) => {
+  const hash = id === 'hero-section' ? '/' : `/#${id}`;
+  return hash;
+};
+
 export const handleScroll = (id: string, duration = 1000) => {
   const target = document.getElementById(id);
   if (!target) return;
 
   const start = window.scrollY;
-  const end = target.getBoundingClientRect().top + start;
+  const end = id === 'hero-section' ? 0 : target.getBoundingClientRect().top + start;
   const distance = end - start;
   let startTime: number | null = null;
+
+  const hash = replaceHash(id);
+  window.history.pushState(null, '', hash);
 
   const easeInOut = (t: number) =>
     t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;

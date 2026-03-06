@@ -23,7 +23,7 @@ export default function MobileSidebar() {
           />
         </div>
 
-        <ul className={`flex flex-col gap-4 mt-6 ${router.pathname === '/' ? '' : 'hidden'}`}>
+        <ul className='flex flex-col gap-4 mt-6'>
           {NAV_LIST.map((nav, index) => (
             <li key={index}>
               <button

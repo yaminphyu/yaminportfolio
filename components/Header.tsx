@@ -5,12 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { faAngleDown, faBars } from '@fortawesome/free-solid-svg-icons';
 import Button from './Button';
-import { handleScroll } from '@/util';
+import { handleScroll, replaceHash } from '@/util';
 import { useTranslate } from '@/hooks/useTranslate';
 import { HeaderProps, TranslateFn } from '@/types';
 import { useRouter } from 'next/router';
 import HorizontalScrollbar from './HorizontalScrollbar';
 import { useSidebarToggle } from '@/context/SidebarToggleContext';
+import { useSectionHashSync } from '@/hooks/useSectionHashSync';
 
 interface LogoProps {
   isFooter?: boolean;
@@ -32,14 +33,10 @@ export const Logo = ({
 const NavBarItem = ({
   onNavigateSection,
   lang,
-  router
 }: {
   onNavigateSection: (id: string) => void;
   lang: TranslateFn;
-  router: ReturnType<typeof useRouter>;
 }) => {
-  if (router.pathname !== '/') return <></>;
-
   return (
     <nav className="hidden lg:flex">
       <ul className="flex items-center gap-10 px-10 py-3 rounded-full border border-gray-500 dark:border-white/20 backdrop-blur-md">
@@ -143,20 +140,18 @@ const HireMe = ({
       >
         {lang('Contact me')}
       </Button>
-      <MobileSidebarToggle toggleSidebar={toggleSidebar} router={router} />
+      <MobileSidebarToggle toggleSidebar={toggleSidebar} />
     </div>
   );
 };
 
 const MobileSidebarToggle = ({
   toggleSidebar,
-  router
 }: {
   toggleSidebar: () => void;
-  router: ReturnType<typeof useRouter>;
 }) => {
   return (
-    <div className={`${router.pathname === '/' ? 'block' : 'hidden'} lg:hidden`}>
+    <div className='lg:hidden'>
       <FontAwesomeIcon
         icon={faBars}
         className="text-[#11001F] dark:text-white text-lg"
@@ -178,6 +173,7 @@ export default function Header({
   const router = useRouter();
   const { locale } = router;
   const { previewImage } = useSidebarToggle();
+  const { setClickScrolling } = useSectionHashSync();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -205,11 +201,13 @@ export default function Header({
 
   const onNavigateSection = (id: string) => {
     if (router.pathname === '/') {
+      setClickScrolling();
       handleScroll(id);
       return;
     }
 
-    router.push(`/`);
+    const target = replaceHash(id);
+    router.push(target);
   };
 
   return (
@@ -231,7 +229,6 @@ export default function Header({
         <NavBarItem
           onNavigateSection={onNavigateSection}
           lang={lang}
-          router={router}
         />
         <HireMe
           toggleSidebar={toggleSidebar}
