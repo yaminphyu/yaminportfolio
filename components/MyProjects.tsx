@@ -21,7 +21,7 @@ export default function Projects() {
         {PROJECTS.map((project) => (
           <article
             key={project.slug}
-            className='rounded-2xl border border-gray-300 dark:border-white/20 p-6 bg-white/70 dark:bg-[#170b22] backdrop-blur-md transition-transform duration-300 hover:-translate-y-2'
+            className='rounded-2xl border border-gray-300 dark:border-white/20 p-6 bg-white/70 hover:bg-[#140620]/3 dark:bg-[#170b22] backdrop-blur-md transition-transform duration-300 hover:-translate-y-2'
           >
             <div className='w-full h-44 rounded-xl border border-dashed border-gray-400 dark:border-white/30 overflow-hidden flex items-center justify-center'>
               {project?.image.length > 0 ? (

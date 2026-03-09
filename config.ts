@@ -90,7 +90,13 @@ export const WORK_EXPERIENCES = [
     id: 1,
     year: 'April 2024 - Present',
     role: 'Frontend Developer',
-    description: 'first job exp',
+    description: [
+      'Developed client-facing web applications using ReactJS, Next.js, TypeScript, and Tailwind CSS.',
+      'Built reusable UI component libraries to improve development efficiency across multiple projects.',
+      'Integrated RESTful APIs, WebSocket, and live chat systems (Chatwoot) to support real-time features.',
+      'Optimized web performance and improved Lighthouse scores by reducing bundle size.',
+      'Collaborated with backend developers, designers, and product managers to deliver scalable features.'
+    ],
     logo: '/work-exp/everlast-logo.jpg',
     companyName: 'Everlast Information & App Dev Co., Ltd',
     companyUrl: 'https://examplecompany1.com',
@@ -100,7 +106,12 @@ export const WORK_EXPERIENCES = [
     id: 2,
     year: 'Oct 2022 - March 2024',
     role: 'Web Developer',
-    description: 'sec job exp',
+    description: [
+      'Developed web platforms and CMS systems for private enterprises and government clients.',
+      'Designed and implemented responsive user interfaces using modern frontend technologies.',
+      'Worked closely with stakeholders to translate business requirements into technical solutions.',
+      'Delivered custom web applications and internal systems tailored to client needs.'
+    ],
     logo: '/work-exp/villagelink-logo.png',
     companyName: 'Village Link | Awba Entity',
     companyUrl: 'https://examplecompany1.com',
@@ -110,7 +121,12 @@ export const WORK_EXPERIENCES = [
     id: 3,
     year: 'DEC 2020 - Sep 2022',
     role: 'Web Developer',
-    description: 'third job exp',
+    description: [
+      'Built and maintained e-commerce platform features including product browsing and cart management.',
+      'Developed API services for product listings, favorites, and cart operations.',
+      'Collaborated with senior developers to implement scalable backend integrations.',
+      'Contributed to improving system functionality and user experience.'
+    ],
     logo: '/work-exp/agga-logo.webp',
     companyName: 'AGGA.IO Co., Ltd',
     companyUrl: 'https://examplecompany1.com',
@@ -120,7 +136,10 @@ export const WORK_EXPERIENCES = [
     id: 4,
     year: 'Sep 2019 - Sep 2022',
     role: 'Web Developer',
-    description: 'fourth job exp',
+    description: [
+      'Built an API under the guidance of my lead developer for an e-commerce website focused on selling groceries.',
+      'The functionalities include browsing products, managing the shopping cart (adding/removing items), marking favorites, and calculating items.'
+    ],
     logo: '',
     companyName: 'Micro Service Myanmar Co., Ltd',
     companyUrl: 'https://examplecompany1.com',

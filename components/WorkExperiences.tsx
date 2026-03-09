@@ -9,6 +9,20 @@ type LangProps = {
   lang: TranslateFn
 }
 
+const renderDescriptionList = (description: string | readonly string[], lang: TranslateFn) => {
+  const descriptions = Array.isArray(description) ? description : [description];
+
+  return (
+    <ul className='list-disc pl-5 space-y-2 text-[#11001F] dark:text-gray-200 leading-relaxed'>
+      {descriptions.map((item, index) => (
+        <li key={`${item}-${index}`}>
+          {lang(item)}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 const WorkExpForPC = ({ lang }: LangProps) => {
   return (
     <div className="w-full mt-10 hidden lg:flex flex-col">
@@ -20,12 +34,10 @@ const WorkExpForPC = ({ lang }: LangProps) => {
             key={`${work.year}-${index}`}
             className="relative max-w-5xl mx-auto"
           >
-            {/* Vertical line */}
             <div className="absolute left-1/2 top-0 h-full w-0.5 bg-[#140620] dark:bg-gray-200" />
 
-            <div className="grid grid-cols-[1fr_70px_1fr] py-10 items-center">
+            <div className="grid grid-cols-[1fr_70px_1fr] py-8 items-center gap-4">
               
-              {/* LEFT */}
               <div className='text-right'>
                 {!isRight ? (
                   <>
@@ -35,26 +47,25 @@ const WorkExpForPC = ({ lang }: LangProps) => {
                         alt={work.companyName}
                         width={50}
                         height={50}
-                        className="mb-2 ml-auto"
+                        className="mb-3 ml-auto rounded-md object-cover"
                       />
                     </div>
-                    <h2 className="text-[#11001F] dark:text-white text-base">{lang(work.year)}</h2>
-                    <p className='text-[#11001F] dark:text-white text-lg font-bold'>{work.companyName}</p>
+                    <h2 className="text-[#11001F]/80 dark:text-white/80 text-sm font-medium">{lang(work.year)}</h2>
+                    <p className='text-[#11001F] dark:text-white text-lg font-bold mt-1'>{work.companyName}</p>
                     <p className="text-[#11001F] dark:text-white mt-2 font-semibold">{work.role}</p>
-                  </>
+                    <p className="text-[#11001F]/80 dark:text-white/70 mt-1 text-sm">{work.location}</p>
+                    </>
                 ) : (
-                  <>
-                    <span className="text-[#11001F] dark:text-gray-200">{lang(work.description)}</span>
-                  </>
+                  <div className="rounded-2xl border border-[#140620]/10 dark:border-white/15 p-6 bg-[#140620]/3 dark:bg-white/5 text-left">
+                    {renderDescriptionList(work.description, lang)}
+                  </div>
                 )}
               </div>
 
-              {/* CENTER DOT */}
               <div className="flex justify-center items-start">
                 <span className="w-4 h-4 rounded-full bg-[#140620] dark:bg-white z-10" />
               </div>
 
-              {/* RIGHT */}
               <div className='text-left'>
                 {isRight ? (
                   <>
@@ -64,17 +75,18 @@ const WorkExpForPC = ({ lang }: LangProps) => {
                         alt={work.companyName}
                         width={50}
                         height={50}
-                        className="mb-2 mr-auto"
+                        className="mb-3 mr-auto rounded-md object-cover"
                       />
                     </div>
-                    <h2 className="text-[#11001F] dark:text-white text-base">{lang(work.year)}</h2>
-                    <p className='text-[#11001F] dark:text-white text-lg font-bold'>{work.companyName}</p>
+                    <h2 className="text-[#11001F]/80 dark:text-white/80 text-sm font-medium">{lang(work.year)}</h2>
+                    <p className='text-[#11001F] dark:text-white text-lg font-bold mt-1'>{work.companyName}</p>
                     <p className="text-[#11001F] dark:text-white mt-2 font-semibold">{work.role}</p>
+                    <p className="text-[#11001F]/80 dark:text-white/70 mt-1 text-sm">{work.location}</p>
                   </>
                 ) : (
-                  <>
-                    <span className="text-[#11001F] dark:text-gray-200">{lang(work.description)}</span>
-                  </>
+                  <div className="rounded-2xl border border-[#140620]/10 dark:border-white/15 p-6 bg-[#140620]/3 dark:bg-white/5 text-left">
+                    {renderDescriptionList(work.description, lang)}
+                  </div>
                 )}
               </div>
             </div>
@@ -114,7 +126,9 @@ const WorkExpForMobile = ({ lang }: LangProps) => {
                   </div>
                 </div>
               </div>
-              <div className='text-[#11001F] dark:text-white'>{lang(work.description)}</div>
+              <div className="rounded-2xl border border-[#140620]/10 dark:border-white/15 p-6 bg-[#140620]/3 dark:bg-white/5 text-left">
+                {renderDescriptionList(work.description, lang)}
+              </div>
             </div>
           );
         })

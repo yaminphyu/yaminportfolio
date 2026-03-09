@@ -50,7 +50,7 @@ export default function ProjectDetailPage() {
 
           <div className='flex flex-col md:flex-row mt-4 md:mt-5 gap-1 md:gap-3 justify-start md:justify-between md:items-center'>
             <span
-              className='px-3 py-1 text-xs rounded-full border border-gray-500 dark:border-white/40 text-[#11001F] dark:text-gray-200 cursor-pointer hover:border-gray-200 hover:text-gray-200 w-20.5'
+              className='px-3 py-1 text-xs rounded-full border border-[#11001F] dark:border-white/40 text-[#11001F]dark:text-gray-300 hover:border-pink-500 hover:text-pink-500 w-20.5 cursor-pointer'
               onClick={() => window.open(project.githubUrl, '_blank')}
             >
               Github Url
@@ -58,7 +58,7 @@ export default function ProjectDetailPage() {
             <Link
               href={`${project.url}`}
               target='_blank'
-              className='inline-block text-md font-medium text-[#11001F] dark:text-gray-300 underline underline-offset-2 tracking-wide hover:text-gray-700 dark:hover:text-gray-200'
+              className='inline-block text-md font-medium text-[#11001F] dark:text-gray-300 underline underline-offset-2 tracking-wide hover:text-pink-500'
             >
               {project.url}
             </Link>
@@ -97,29 +97,18 @@ export default function ProjectDetailPage() {
             ))}
           </div>
 
-          <ul className='mt-8 space-y-2'>
-          {project?.keyFeatures.map((item: string, index: number) => (
-            <li
-              key={index}
-              className='flex items-start gap-3'
-            >
-              <span className='mt-1.5 shrink-0 w-4 h-4 rounded-full border-2 border-purple-800 dark:border-purple-900 flex items-center justify-center transition-all duration-200'>
-                <span className='w-1.5 h-1.5 rounded-full bg-purple-900 dark:bg-purple-800 transition-colors duration-200' />
-              </span>
-
-              <span className='leading-6 text-[#11001F] dark:text-gray-300 transition-colors duration-200 font-semibold'>
-                {item}
-              </span>
-            </li>
-          ))}
-        </ul>
+          <ul className='mt-8 list-disc pl-5 space-y-2 text-[#11001F] dark:text-gray-200 leading-relaxed'>
+            {project?.keyFeatures.map((item, index) => (
+              <li key={`${item}-${index}`}>{item}</li>
+            ))}
+          </ul>
 
           <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-5'>
             <div className='rounded-xl border border-gray-300 dark:border-white/20 p-4'>
               <h2 className='font-semibold text-[#11001F] dark:text-white'>{lang('Languages')}</h2>
               <div className='mt-3 flex flex-wrap gap-2'>
                 {project.languages.map((item) => (
-                  <span key={item} className='px-3 py-1 rounded-full border border-gray-500 dark:border-white/40 text-sm'>
+                  <span key={item} className='px-3 py-1 rounded-full border border-gray-500 dark:border-white/40 text-sm text-black dark:text-white'>
                     {item}
                   </span>
                 ))}
