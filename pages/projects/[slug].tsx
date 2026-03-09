@@ -50,7 +50,7 @@ export default function ProjectDetailPage() {
 
           <div className='flex flex-col md:flex-row mt-4 md:mt-5 gap-1 md:gap-3 justify-start md:justify-between md:items-center'>
             <span
-              className='px-3 py-1 text-xs rounded-full border border-[#11001F] dark:border-white/40 text-[#11001F]dark:text-gray-300 hover:border-pink-500 hover:text-pink-500 w-20.5 cursor-pointer'
+              className='px-3 py-1 text-xs rounded-full text-[#11001F] dark:text-white border border-[#11001F] dark:border-white/40 text-[#11001F]dark:text-gray-300 hover:border-pink-500 hover:text-pink-500 w-20.5 cursor-pointer'
               onClick={() => window.open(project.githubUrl, '_blank')}
             >
               Github Url

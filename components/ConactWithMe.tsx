@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react'
 import SectionWrapper from './SectionWrapper'
 import Button from './Button'
@@ -16,44 +18,68 @@ export default function ConactWithMe() {
     message: ''
   });
 
-  const MySwal = withReactContent(Swal)
+  // const MySwal = withReactContent(Swal)
 
-  const sendEmail = async (e?: React.MouseEvent) => {
-    e?.preventDefault();
+  // const sendEmail = async (e?: React.MouseEvent) => {
+  //   e?.preventDefault();
 
-    const { name, email, message } = contactInformation;
-    if (!name || !email || !message) return;
+  //   const { name, email, message } = contactInformation;
+  //   if (!name || !email || !message) return;
     
-    const res = await fetch('/api/send-email', {
+  //   const res = await fetch('/api/send-email', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({
+  //       email,
+  //       message: `
+  //         Hi, this is ${name}.
+  //         ${message}
+  //       `
+  //     }),
+  //   });
+  
+  //   const data = await res.json();
+
+  //   setContactInformation({
+  //     name: '',
+  //     email: '',
+  //     message: ''
+  //   });
+
+  //   const { success } = data || {};
+
+  //   if (!success) return;
+  //   MySwal.fire({
+  //     icon: "success",
+  //     title: "Successfully sending!",
+  //     showConfirmButton: false,
+  //     timer: 1800
+  //   });
+  // };
+
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('loading');
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+
+    console.log({ data, status, form });
+    
+    const res = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        message: `
-          Hi, this is ${name}.
-          ${message}
-        `
-      }),
-    });
-  
-    const data = await res.json();
-
-    setContactInformation({
-      name: '',
-      email: '',
-      message: ''
+      body: JSON.stringify(data),
     });
 
-    const { success } = data || {};
-
-    if (!success) return;
-    MySwal.fire({
-      icon: "success",
-      title: "Successfully sending!",
-      showConfirmButton: false,
-      timer: 1800
-    });
-  };
+    setStatus(res.ok ? 'success' : 'error');
+  }
 
   return (
     <SectionWrapper
@@ -65,6 +91,39 @@ export default function ConactWithMe() {
         <span className='text-center text-[#11001F] dark:text-white text-sm md:text-base'>{lang('any questions')}</span>
         <div className='w-full'>
           <form
+            className='flex flex-col gap-8'
+            onSubmit={handleSubmit}
+          >
+            <div className='w-full flex flex-col lg:flex-row gap-8 lg:gap-4'>
+              <input
+                name="name"
+                placeholder="Enter your name"
+                required
+                className='w-full lg:w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
+              />
+              <input
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                required
+                className='w-full lg:w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
+              />
+            </div>
+            <textarea
+              name="message"
+              placeholder="Enter your message"
+              required
+              className='p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white w-full text-sm md:text-base'
+            />
+            <div className='w-full flex justify-center items-center'>
+              <button type="submit" disabled={status === 'loading'}>
+                {status === 'loading' ? 'Sending...' : 'Submit now →'}
+              </button>
+            </div>
+            {status === 'success' && <p>Message sent!</p>}
+            {status === 'error' && <p>Something went wrong. Try again.</p>}
+          </form>
+          {/* <form
             className='flex flex-col gap-8'
             onSubmit={(e) => {
               e.preventDefault();
@@ -118,7 +177,7 @@ export default function ConactWithMe() {
                 <FontAwesomeIcon icon={faArrowRight} className="text-base md:text-lg ml-2" />
               </Button>
             </div>
-          </form>
+          </form> */}
         </div>
       </div>
     </SectionWrapper>
