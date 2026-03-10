@@ -4,6 +4,7 @@ export type HeaderProps = {
   toggleSidebar: () => void;
   scrolled: boolean;
   handleTheme: () => void;
+  onNavigateSection: (id: string) => void;
 };
 
 export type Locale = 'en' | 'mm';

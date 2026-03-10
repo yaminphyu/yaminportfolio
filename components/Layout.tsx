@@ -4,6 +4,10 @@ import MobileSidebar from './MobileSidebar';
 import useIndex from '@/hooks/useIndex';
 import ScrollUpArrow from './ScrollUpArrow';
 import CustomCursor from './CustomCursor';
+import { useSectionHashSync } from '@/hooks/useSectionHashSync';
+import { useRouter } from 'next/router';
+import { handleScroll, replaceHash } from '@/util';
+import { useSidebarToggle } from '@/context/SidebarToggleContext';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -16,6 +20,10 @@ export default function Layout({ children }: LayoutProps) {
     handleTheme
   } = useIndex();
 
+  const router = useRouter();
+  const { setClickScrolling } = useSectionHashSync();
+  const { isOpen, closeSidebar } = useSidebarToggle();
+
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -24,6 +32,19 @@ export default function Layout({ children }: LayoutProps) {
     });
     return () => cancelAnimationFrame(animationFrame);
   }, []);
+
+  const onNavigateSection = (id: string) => {
+    if (isOpen) closeSidebar();
+
+    if (router.pathname === '/') {
+      setClickScrolling();
+      handleScroll(id);
+      return;
+    }
+
+    const target = replaceHash(id);
+    router.push(target);
+  };
 
   if (!mounted) return <></>;
 
@@ -36,8 +57,9 @@ export default function Layout({ children }: LayoutProps) {
           toggleSidebar={toggleSidebar}
           scrolled={scrolled}
           handleTheme={handleTheme}
+          onNavigateSection={onNavigateSection}
         />
-        <MobileSidebar />
+        <MobileSidebar onNavigateSection={onNavigateSection} />
 
         <main className="w-full flex flex-col justify-center items-center pt-20 overflow-x-hidden gap-20">
           {children}

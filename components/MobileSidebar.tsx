@@ -2,12 +2,13 @@ import { useSidebarToggle } from '@/context/SidebarToggleContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { NAV_LIST } from '@/config';
-import { handleScroll } from '@/util';
-import { useRouter } from 'next/router';
 
-export default function MobileSidebar() {
+export default function MobileSidebar({
+  onNavigateSection
+}: {
+  onNavigateSection: (id: string) => void
+}) {
   const { isOpen, closeSidebar } = useSidebarToggle();
-  const router = useRouter();
 
   if (!isOpen) return;
 
@@ -28,8 +29,7 @@ export default function MobileSidebar() {
             <li key={index}>
               <button
                 onClick={() => {
-                  handleScroll(nav?.id);
-                  closeSidebar();
+                  onNavigateSection(nav?.id);
                 }}
                 className="text-[#11001F] dark:text-white hover:text-white/80 transition"
               >

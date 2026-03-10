@@ -5,13 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { faAngleDown, faBars } from '@fortawesome/free-solid-svg-icons';
 import Button from './Button';
-import { handleScroll, replaceHash } from '@/util';
 import { useTranslate } from '@/hooks/useTranslate';
 import { HeaderProps, TranslateFn } from '@/types';
 import { useRouter } from 'next/router';
 import HorizontalScrollbar from './HorizontalScrollbar';
 import { useSidebarToggle } from '@/context/SidebarToggleContext';
-import { useSectionHashSync } from '@/hooks/useSectionHashSync';
 
 interface LogoProps {
   isFooter?: boolean;
@@ -164,7 +162,8 @@ const MobileSidebarToggle = ({
 export default function Header({
   toggleSidebar,
   scrolled,
-  handleTheme
+  handleTheme,
+  onNavigateSection
 }: HeaderProps) {
   const lang = useTranslate();
 
@@ -173,7 +172,6 @@ export default function Header({
   const router = useRouter();
   const { locale } = router;
   const { previewImage } = useSidebarToggle();
-  const { setClickScrolling } = useSectionHashSync();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -197,17 +195,6 @@ export default function Header({
       { locale: lang }
     );
     setOpen(false);
-  };
-
-  const onNavigateSection = (id: string) => {
-    if (router.pathname === '/') {
-      setClickScrolling();
-      handleScroll(id);
-      return;
-    }
-
-    const target = replaceHash(id);
-    router.push(target);
   };
 
   return (

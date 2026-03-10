@@ -117,7 +117,7 @@ export default function ProjectDetailPage() {
 
             <div className='rounded-xl border border-gray-300 dark:border-white/20 p-4 space-y-3'>
               <div>
-                <h2 className='font-semibold text-[#11001F] dark:text-white'>{lang('Company')}</h2>
+                {/* <h2 className='font-semibold text-[#11001F] dark:text-white'>{lang('Company')}</h2> */}
                 <p className='text-[#11001F] dark:text-gray-300'>{company}</p>
               </div>
               <div>
