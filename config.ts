@@ -107,10 +107,12 @@ export const WORK_EXPERIENCES = [
     year: 'Oct 2022 - March 2024',
     role: 'Web Developer',
     description: [
-      'Developed web platforms and CMS systems for private enterprises and government clients.',
-      'Designed and implemented responsive user interfaces using modern frontend technologies.',
-      'Worked closely with stakeholders to translate business requirements into technical solutions.',
-      'Delivered custom web applications and internal systems tailored to client needs.'
+      'Developed and maintained multiple web systems and admin platforms.',
+      'Built the HtwetToe admin panel with user management, posts, notifications, and reporting tools.',
+      'Implemented CSV data processing and role-based access control.',
+      'Developed social platform features for agricultural community interaction.',
+      'Integrated MPU and Dinger payment gateways for financial transactions.',
+      'Supported microfinance system digitization and resolved production issues.'
     ],
     logo: '/work-exp/villagelink-logo.png',
     companyName: 'Village Link | Awba Entity',
@@ -122,10 +124,10 @@ export const WORK_EXPERIENCES = [
     year: 'DEC 2020 - Sep 2022',
     role: 'Web Developer',
     description: [
-      'Built and maintained e-commerce platform features including product browsing and cart management.',
-      'Developed API services for product listings, favorites, and cart operations.',
-      'Collaborated with senior developers to implement scalable backend integrations.',
-      'Contributed to improving system functionality and user experience.'
+      'Built a healthcare platform connecting admins, doctors, laboratories, and patients.',
+      'Developed appointment scheduling, consultation, and laboratory workflow features.',
+      'Integrated Dinger payment system for secure transaction processing.',
+      'Created an ISP service management system for client registration, billing verification, and appointment handling.'
     ],
     logo: '/work-exp/agga-logo.webp',
     companyName: 'AGGA.IO Co., Ltd',
@@ -263,7 +265,7 @@ export const PROJECTS = [
       'API integration for dynamic data',
     ],
     languages: ['Next.js', 'TypeScript', 'Tailwind CSS', 'REST API'],
-    companyName: 'Everlast Information & App Dev Co., Ltd',
+    companyName: 'Personal development',
     developmentTime: 'Jan 2024 - May 2024',
     image: [
       '/projects/admin-dashboard/admin-1.png',
@@ -299,7 +301,7 @@ export const PROJECTS = [
 
     ],
     languages: ['Next.js', 'TypeScript', 'Tailwind CSS', 'REST API'],
-    companyName: 'Everlast Information & App Dev Co., Ltd',
+    companyName: 'Personal development',
     developmentTime: 'Jan 2024 - May 2024',
     image: [
       '/projects/vege-web/vege-1.png',
@@ -327,7 +329,7 @@ export const PROJECTS = [
       'Smooth scrolling navigation between sections',
     ],
     languages: ['Next.js', 'TypeScript', 'Tailwind CSS', 'REST API'],
-    companyName: 'Everlast Information & App Dev Co., Ltd',
+    companyName: 'Personal development',
     developmentTime: 'Jan 2024 - May 2024',
     image: [
       '/projects/foodie-web/foodie-1.png',
