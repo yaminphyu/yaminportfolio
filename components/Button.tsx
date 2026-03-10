@@ -5,20 +5,23 @@ interface ButtonProps {
   arialLabel?: string;
   cusCss?: string;
   onClick?: () => void;
-  type?: "button" | "reset" | "submit"
+  type?: "button" | "reset" | "submit";
+  disabled?: boolean;
 }
 export default function Button({
   children,
   arialLabel,
   cusCss,
   onClick,
-  type = 'button'
+  type = 'button',
+  disabled = false
 }: ButtonProps) {
   return (
     <button
       type={type}
       aria-label={arialLabel}
       onClick={onClick}
+      disabled={disabled}
       className={`
         px-6 py-3 rounded-full font-semibold text-sm md:text-base text-center
         border border-gray-500 dark:border-white/30

@@ -3,8 +3,6 @@
 import React, { useState } from 'react'
 import SectionWrapper from './SectionWrapper'
 import Button from './Button'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { useTranslate } from '@/hooks/useTranslate'
@@ -12,65 +10,24 @@ import { useTranslate } from '@/hooks/useTranslate'
 export default function ConactWithMe() {
   const lang = useTranslate();
 
+  const [status, setStatus] = useState<'idle' | 'loading'>('idle');
   const [contactInformation, setContactInformation] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  // const MySwal = withReactContent(Swal)
-
-  // const sendEmail = async (e?: React.MouseEvent) => {
-  //   e?.preventDefault();
-
-  //   const { name, email, message } = contactInformation;
-  //   if (!name || !email || !message) return;
-    
-  //   const res = await fetch('/api/send-email', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({
-  //       email,
-  //       message: `
-  //         Hi, this is ${name}.
-  //         ${message}
-  //       `
-  //     }),
-  //   });
-  
-  //   const data = await res.json();
-
-  //   setContactInformation({
-  //     name: '',
-  //     email: '',
-  //     message: ''
-  //   });
-
-  //   const { success } = data || {};
-
-  //   if (!success) return;
-  //   MySwal.fire({
-  //     icon: "success",
-  //     title: "Successfully sending!",
-  //     showConfirmButton: false,
-  //     timer: 1800
-  //   });
-  // };
-
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const MySwal = withReactContent(Swal);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus('loading');
 
-    const form = e.currentTarget;
     const data = {
-      name: (form.elements.namedItem('name') as HTMLInputElement).value,
-      email: (form.elements.namedItem('email') as HTMLInputElement).value,
-      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      name: contactInformation?.name,
+      email: contactInformation?.email,
+      message: contactInformation?.message
     };
-
-    console.log({ data, status, form });
     
     const res = await fetch('/api/contact', {
       method: 'POST',
@@ -78,7 +35,22 @@ export default function ConactWithMe() {
       body: JSON.stringify(data),
     });
 
-    setStatus(res.ok ? 'success' : 'error');
+    const alertIcon = res.ok ? 'success' : 'error';
+    const alertText = res.ok ? 'Successfully sending!' : 'Error sending!';
+
+    MySwal.fire({
+      icon: alertIcon,
+      title: alertText,
+      showConfirmButton: false,
+      timer: 1800
+    });
+
+    setStatus('idle');
+    setContactInformation({
+      name: '',
+      email: '',
+      message: ''
+    });
   }
 
   return (
@@ -100,6 +72,13 @@ export default function ConactWithMe() {
                 placeholder="Enter your name"
                 required
                 className='w-full lg:w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
+                value={contactInformation?.name}
+                onChange={(e) => {
+                  setContactInformation(prev => ({
+                    ...prev,
+                    name: e.target.value
+                  }));
+                }}
               />
               <input
                 name="email"
@@ -107,6 +86,13 @@ export default function ConactWithMe() {
                 placeholder="Enter your email"
                 required
                 className='w-full lg:w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
+                value={contactInformation?.email}
+                onChange={(e) => {
+                  setContactInformation(prev => ({
+                    ...prev,
+                    email: e.target.value
+                  }));
+                }}
               />
             </div>
             <textarea
@@ -114,70 +100,24 @@ export default function ConactWithMe() {
               placeholder="Enter your message"
               required
               className='p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white w-full text-sm md:text-base'
-            />
-            <div className='w-full flex justify-center items-center'>
-              <button type="submit" disabled={status === 'loading'}>
-                {status === 'loading' ? 'Sending...' : 'Submit now →'}
-              </button>
-            </div>
-            {status === 'success' && <p>Message sent!</p>}
-            {status === 'error' && <p>Something went wrong. Try again.</p>}
-          </form>
-          {/* <form
-            className='flex flex-col gap-8'
-            onSubmit={(e) => {
-              e.preventDefault();
-              sendEmail();
-            }}
-          >
-            <div className='w-full flex gap-4'>
-              <input
-                type="text"
-                placeholder={lang('Enter your name')}
-                className='w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
-                value={contactInformation?.name}
-                onChange={(e) => {
-                  setContactInformation({
-                    ...contactInformation,
-                    name: e.target.value
-                  });
-                }}
-              />
-              <input
-                type="email"
-                placeholder={lang('Enter your email')}
-                className='w-1/2 p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white text-sm md:text-base'
-                value={contactInformation?.email}
-                onChange={(e) => {
-                  setContactInformation({
-                    ...contactInformation,
-                    email: e.target.value
-                  });
-                }}
-              />
-            </div>
-            <textarea
-              placeholder={lang('Enter your message')}
-              rows={8}
-              className='p-2.5 rounded-md bg-gray-100 dark:bg-[#18012B] border border-white/30 text-[#11001F] dark:text-white w-full text-sm md:text-base'
               value={contactInformation?.message}
-              onChange={(e) => {
-                setContactInformation({
-                  ...contactInformation,
-                  message: e.target.value
-                });
-              }}
+                onChange={(e) => {
+                  setContactInformation(prev => ({
+                    ...prev,
+                    message: e.target.value
+                  }));
+                }}
             />
             <div className='w-full flex justify-center items-center'>
               <Button
                 type='submit'
                 arialLabel='Submit now'
+                disabled={status === 'loading'}
               >
-                {lang('Submit now')}
-                <FontAwesomeIcon icon={faArrowRight} className="text-base md:text-lg ml-2" />
+                {status === 'loading' ? 'Sending...' : 'Submit now'}
               </Button>
             </div>
-          </form> */}
+          </form>
         </div>
       </div>
     </SectionWrapper>
