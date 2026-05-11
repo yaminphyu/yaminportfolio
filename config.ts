@@ -53,7 +53,7 @@ export const ABOUT_ME = [
   },
   {
     name: 'Projects',
-    description: 'More than 50+ projects completed successfully.',
+    description: 'Worked on multiple production web applications and frontend systems.',
     icon: faBriefcase,
   },
 ] as const;
@@ -155,6 +155,37 @@ export const SYSTEM_LANGUAGES = [
 ] as const;
 
 export const PROJECTS = [
+  {
+    slug: 'portfolio-website',
+    title: 'Portfolio Website',
+    url: 'https://yaminportfolio.vercel.app/',
+    githubUrl: 'https://github.com/yaminphyu/Kaung-Hanny-WeddingInvitation',
+    shortDescription: 'A responsive wedding invitation website that displays event details and collects guest RSVP responses through Google Forms integration.',
+    detailParagraphs: [
+      'Developed a modern and responsive Wedding Invitation Website to share event details with guests in a convenient digital format. The website presents important information such as the wedding schedule, venue, and celebration details in an elegant layout.',
+      'The project was built using Next.js for fast performance and routing, and Tailwind CSS for creating a clean, responsive design. Guests can easily send their attendance confirmation through a Google Form integration, which allows the couple to collect responses efficiently.',
+      'The website focuses on simplicity, mobile-friendly design, and a pleasant user experience to make it easy for guests to access wedding information anytime.'
+    ],
+    keyFeatures: [
+      'Responsive design for mobile, tablet, and desktop',
+      'Wedding event details and photo gallery',
+      'RSVP form integration using Google Forms',
+      'Smooth navigation and modern UI design',
+      'Optimized performance using Next.js'
+    ],
+    languages: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Google Forms (RSVP response collection)'],
+    companyName: 'Personal development',
+    developmentTime: 'Aug 2024 - Sep 2024',
+    image: [
+      '/projects/portfolio/portfolio-1.png',
+      '/projects/portfolio/portfolio-2.png',
+      '/projects/portfolio/portfolio-3.png',
+      '/projects/portfolio/portfolio-4.png',
+      '/projects/portfolio/portfolio-5.png',
+      '/projects/portfolio/portfolio-6.png',
+      '/projects/portfolio/portfolio-7.png',
+    ],
+  },
   {
     slug: 'wedding-invitation-website',
     title: 'Wedding Invitation Website',

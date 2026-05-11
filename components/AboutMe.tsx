@@ -97,7 +97,7 @@ export default function AboutMe() {
           </div>
 
           <div className='flex flex-col justify-center items-start w-full mt-4'>
-            <h3 className='text-lg font-semibold mb-2 text-[#11001F] dark:text-white'>Languages & Frameworks</h3>
+            <h3 className='text-lg font-semibold mb-2 text-[#11001F] dark:text-white'>{lang('Technologies')}</h3>
             <div className='w-full flex mt-4 gap-2 relative flex-wrap'>
               {
                 LANGUAGES.map((language, index) => {

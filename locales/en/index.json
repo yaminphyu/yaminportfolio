@@ -1,14 +1,14 @@
 {
   "Yamin Phyu": "Yamin Phyu",
   "Hi! I'm {0}": "Hi! I'm {0}",
-  "hero content": "I have over 5 years of experience building scalable frontend systems with React and Next.js, focusing on performance, maintainability, and clean UI architecture.",
+  "hero content": "Frontend Developer specializing in React, Next.js, and scalable web applications. Building responsive, performant, and production-ready user experiences.",
   "contact me": "contact me",
   "my resume": "my resume",
   "Home": "Home",
   "About me": "About me",
   "My Work": "My Work",
   "Contact me": "Contact me",
-  "introduction content": "I have over 5 years of experience building responsive web applications. Passionate about clean, maintainable, and reusable code, and creating user experiences and collaboration with cross-functional teams to deliver high-quality products. I particularly relish the challenge of debugging and resolving errors.",
+  "introduction content": "Full-stack developer focused on frontend engineering with experience building responsive web applications using React, Next.js, Redux, Tailwind CSS, and realtime systems. Passionate about performance optimization, UI/UX, and scalable architecture.",
   "Education": "Education",
   "BE-IT from Technological University(HmawBi)": "BE-IT from Technological University(HmawBi)",
   "Projects": "Projects",
@@ -62,5 +62,6 @@
   "Collaborated with senior developers to implement scalable backend integrations.": "Collaborated with senior developers to implement scalable backend integrations.",
   "Contributed to improving system functionality and user experience.": "Contributed to improving system functionality and user experience.",
   "Built an API under the guidance of my lead developer for an e-commerce website focused on selling groceries.": "Built an API under the guidance of my lead developer for an e-commerce website focused on selling groceries.",
-  "The functionalities include browsing products, managing the shopping cart (adding/removing items), marking favorites, and calculating items.": "The functionalities include browsing products, managing the shopping cart (adding/removing items), marking favorites, and calculating items."
+  "The functionalities include browsing products, managing the shopping cart (adding/removing items), marking favorites, and calculating items.": "The functionalities include browsing products, managing the shopping cart (adding/removing items), marking favorites, and calculating items.",
+  "Technologies": "Technologies"
 }
