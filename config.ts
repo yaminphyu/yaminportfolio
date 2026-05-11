@@ -53,7 +53,7 @@ export const ABOUT_ME = [
   },
   {
     name: 'Projects',
-    description: 'Worked on multiple production web applications and frontend systems.',
+    description: 'Worked on multiple web applications and frontend systems.',
     icon: faBriefcase,
   },
 ] as const;
